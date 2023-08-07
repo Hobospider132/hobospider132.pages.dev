@@ -102,8 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
         });
-
-        setInterval(f_update_positions, update_speed);
     };     
       
     var birthBar = document.querySelector('.birth-bar');
