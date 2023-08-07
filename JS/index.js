@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Love()
     });
     function Love() {
-        const num_of_hearts = 10;
+        const num_of_hearts = 20;
         const driftX = 50;
         const gravity = 25;
         const update_speed = 900; // millisecond
