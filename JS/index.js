@@ -100,8 +100,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     xx.remove(); // Remove the heart element from the DOM
                 }
             });
-
+            
         });
+        setInterval(f_update_positions, update_speed);
     };     
       
     var birthBar = document.querySelector('.birth-bar');
