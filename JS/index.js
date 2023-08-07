@@ -1,14 +1,12 @@
 /*Code modified from http://xahlee.info/js/js_raining_hearts.html*/
 
 document.addEventListener('DOMContentLoaded', function () {
-    let run = 0;
     window.addEventListener("load", event => {
         var img = document.querySelector('count');
         const textElement = document.getElementById('visitorCount');
         textElement.style.display = 'none';
     });
     function Love() {
-        run = 1;
         const num_of_hearts = 10;
         const driftX = 50;
         const gravity = 25;
@@ -106,15 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         setInterval(f_update_positions, update_speed);
-    };
-
-    if (run = 1) {
-        setInterval(Love, 10000);
-    }
-
-       
+    };     
       
-
     var birthBar = document.querySelector('.birth-bar');
     var birthProgress = document.querySelector('.birth-progress');
     var birthdayMessage = document.getElementById('birthdayMessage');
