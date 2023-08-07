@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var img = document.querySelector('count');
         const textElement = document.getElementById('visitorCount');
         textElement.style.display = 'none';
+        Love()
     });
     function Love() {
         const num_of_hearts = 10;
