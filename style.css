@@ -48,7 +48,7 @@ body {
 }  
 
 .bg {
-  background-image: linear-gradient(rgba(90, 44, 44, 0.75), rgba(147, 146, 156, 0.75)), url('images/background.png');
+  background-image: linear-gradient(rgba(90, 44, 44, 0.75), rgba(147, 146, 156, 0.75)), url('images/background.avif');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
