@@ -125,14 +125,15 @@ document.addEventListener('DOMContentLoaded', function () {
         return regex.test(navigator.userAgent);
     }
 
-    let osuLink = document.getElementById('osu')
-    let contact = document.getElementById('contact-wrapper')
+    let osuLink = document.getElementById('osu');
+    let contact = document.getElementById('contact-wrapper');
+    let countClamp = document.getElementById('countClamp');
 
     if (device()) { /* If it's on mobile */
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true";
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '30px';
-        
+        countClamp.style.width = 'clamp(380px,8vw,105px)';
     } else {
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true";
     }
