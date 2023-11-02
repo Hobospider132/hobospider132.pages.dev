@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let countClamp = document.getElementById('countClamp');
     let main = document.getElementById('main');
     let line = document.getElementById('line');
+    let center = document.getElementById('center');
 
     if (device()) { /* If it's on mobile */
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true";
@@ -138,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
         countClamp.style.width = 'clamp(380px,8vw,105px)';
         main.style.marginLeft = '30px';
         line.style.display = 'none';
+        center.style.alignContent = 'center';
     } else {
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true";
     }
