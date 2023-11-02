@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (device()) { /* If it's on mobile */
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true";
         contact.style.width = 'clamp(380px, 8vw, 105px)';
-        contact.style.width = '20px';
+        contact.style.marginLeft = '20px';
         countClamp.style.width = 'clamp(380px,8vw,105px)';
         main.style.marginLeft = '30px';
     } else {
