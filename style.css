@@ -152,7 +152,11 @@ footer {
   transform: translateY(-10px);
 }
 
-.hover:hover {
+.img-hover {
+  color: red;
+}
+
+.img-hover:hover {
   transform: translateY(-10px);
 }
 
