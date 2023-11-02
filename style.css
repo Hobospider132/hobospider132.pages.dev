@@ -152,14 +152,6 @@ footer {
   transform: translateY(-10px);
 }
 
-.img-active {
-  color: red;
-}
-
-.img-hover:active {
-  transform: perspective(300px) translateZ(-25px)
-}
-
 .link {
   color: #ffffff;
 }
