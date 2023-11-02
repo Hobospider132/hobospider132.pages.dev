@@ -157,7 +157,7 @@ footer {
 }
 
 .img-hover:hover {
-  transform: translateY(-10px);
+  transform: translateY(-20px);
 }
 
 .link {
