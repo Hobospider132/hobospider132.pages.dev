@@ -152,12 +152,12 @@ footer {
   transform: translateY(-10px);
 }
 
-.img-hover {
+.img-active {
   color: red;
 }
 
-.img-hover:hover {
-  transform: translateY(-20px);
+.img-hover:active {
+  transform: perspective(300px) translateZ(-25px)
 }
 
 .link {
