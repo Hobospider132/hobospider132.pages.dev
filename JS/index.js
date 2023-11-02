@@ -1,8 +1,7 @@
-/*Code modified from http://xahlee.info/js/js_raining_hearts.html*/
+/*Code modified from http://xahlee.info/js/js_raining_hearts.html (For raining hearts only)*/
 
 document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener("load", event => {
-        var img = document.querySelector('count');
         const textElement = document.getElementById('visitorCount');
         textElement.style.display = 'none';
         Love()
@@ -15,10 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const heartTypes = [... "💖💗🌸🌺"];
 
         const viewportWidth = document.documentElement.clientWidth;
-        const viewportHeight = document.documentElement.clientHeight;
 
         const viewSpaceWidth = viewportWidth + 50;
-        const viewSpaceHeight = viewportHeight + 50;
 
         const randomInt = ((xmin, xmax) => (Math.floor(Math.random() * (xmax + 1 - xmin) + xmin)));
 
@@ -28,16 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
             randomInt(70, 100) + "%," +
             randomInt(40, 60) + "%," +
             randomReal(0.2, 0.3) + ")");
-
-
-        const f_restart_heart = ((xx) => {
-            xx["xxleft"] = randomInt(0, viewSpaceWidth);
-            xx.style.left = xx["xxleft"] + "px";
-            xx["xxtop"] = randomInt(0, viewSpaceHeight) - viewSpaceHeight;
-            xx.style.top = xx["xxtop"] + "px";
-            xx["xrotate"] = randomInt(-150, 150);
-            xx.style.transform = "rotate(" + xx["xrotate"] + "deg)";
-        });
 
         const heart_box = document.createElement("div");
         heart_box.setAttribute("id", "heart_box");
@@ -58,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
             yy.style.position = "fixed";
             yy.style.zIndex = randomInt(100, 9999).toString();
             yy.style.transition = "top linear 1.5s, left linear 1.5s, transform linear 1.5s";
-            // f_restart_heart(yy);
             return yy;
         });
 
@@ -132,5 +118,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Set the width of the XP progress element
         birthProgress.style.width = monthProgress + '%';
+    }
+
+    function device() {
+        const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+        return regex.test(navigator.userAgent);
+    }
+
+    let osuLink = document.getElementById('osu')
+    let contact = document.getElementById('contact-wrapper')
+
+    if (device()) { /* If it's on mobile */
+        osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true";
+        contact.style.width = 'clamp(380px, 8vw, 105px)';
+        contact.style.marginLeft = '30px';
+    } else {
+        osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true";
     }
 });
