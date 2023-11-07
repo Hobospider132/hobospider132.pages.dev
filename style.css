@@ -20,6 +20,10 @@
   border-radius: 25px;
 }
 
+.fancy:active {
+  transform: perspective(300px) translateZ(-25px);
+}
+
 body {
   margin: 0px;
   font-family: sans-serif;
@@ -293,6 +297,12 @@ section h3 {
   -webkit-text-stroke: 1px var(--text-stroke-color);
   background-color:  black; 
 }
+
+.timezone:active {
+  transform: perspective(300px) translateZ(-25px);
+}
+
+
 
 .date {
   font-size: 1.05rem;

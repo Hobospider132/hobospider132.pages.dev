@@ -114,8 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
         main.style.marginLeft = '30px';
         line.style.display = 'none';
         center.style.alignContent = 'center';
+        timeDiv.style.marginLeft = '60px';
     } else {
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true";
-        timeDiv.style.paddingLeft = '290px';
+        timeDiv.style.marginLeft = '340px';
     }   
 });
