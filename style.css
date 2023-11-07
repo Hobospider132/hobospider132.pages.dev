@@ -1,3 +1,8 @@
+/* * {
+  border: 1px solid red;
+} */
+
+
 .fancy {
   --text-stroke-color: aquamarine;
   letter-spacing: 3px;
@@ -23,27 +28,27 @@ body {
   background-color: transparent;
 }
 
-.birth-bar {
+/* .birth-bar {
   width: 200px;
   height: 20px;
-  border: 1px solid #E0115F; /* Rubee shrine!! */
+  border: 1px solid #E0115F;  Rubee shrine!! 
   background-color: aquamarine;
   border-radius: 25px;
   overflow: hidden;
   position: relative;
-}
+} */
+
+/* .birth-progress {
+  width: 0;
+  height: 100%;
+  background-color: purple;
+  transition: width 0.5s;
+}   */
 
 .size {
   width: 150px;
   height: 150px;
 }
-
-.birth-progress {
-  width: 0;
-  height: 100%;
-  background-color: purple;
-  transition: width 0.5s;
-}  
 
 .bg {
   background-image: linear-gradient(rgba(90, 44, 44, 0.75), rgba(147, 146, 156, 0.75)), url('images/background.avif');
@@ -265,4 +270,77 @@ section h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* from here it's going to be the code for the clock */
+
+.timezone {
+  border-radius: 40px;
+  width: clamp(300px,8vw,105px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  --text-stroke-color: aquamarine;
+  text-decoration: none;
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  font-size: 50px;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+  background-color:  black; 
+}
+
+.date {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px 0;
+  font-size: 52px;
+  margin-top: -50px;
+}
+
+.time span {
+  line-height: 1.75;
+}
+
+.time span:nth-of-type(5) {
+  width: 90px;
+}
+
+.time span.colon {
+  width: 12px;
+  text-align: center;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

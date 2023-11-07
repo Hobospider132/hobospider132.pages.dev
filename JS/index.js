@@ -92,34 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setInterval(f_update_positions, update_speed);
     };     
       
-    var birthBar = document.querySelector('.birth-bar');
-    var birthProgress = document.querySelector('.birth-progress');
-    var birthdayMessage = document.getElementById('birthdayMessage');
-    var birthText = document.getElementById('birthText');
-
-    // Calculate the current date
-    var currentDate = new Date();
-    var currentDay = currentDate.getDate();
-    var currentMonth = currentDate.getMonth() + 1; // Months are zero-based, so we add 1
-
-    // Set the target date for resetting the birthday bar
-    var resetMonth = 1;
-    var resetDay = 22;
-
-    if (currentDay === resetDay) {
-        birthProgress.style.width = '0';
-    } else if (currentDay === resetDay - 1 && currentMonth === resetMonth) {
-        birthBar.style.display = 'none';
-        birthdayMessage.style.display = 'block';
-        birthText.style.display = 'none';
-    } else {
-        var totalMonths = 12; // Total number of months in a year
-        var monthProgress = ((currentMonth - 1) / totalMonths) * 100;
-
-        // Set the width of the XP progress element
-        birthProgress.style.width = monthProgress + '%';
-    }
-
+    /* Edit the page if it's on mobile so it works and everything fits (intended for iphone xr)*/
     function device() {
         const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
         return regex.test(navigator.userAgent);
@@ -131,8 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let main = document.getElementById('main');
     let line = document.getElementById('line');
     let center = document.getElementById('center');
-    let brake = document.getElementById('break');
-    brake.style.display = 'none';
+    let timeDiv = document.getElementById('time');
 
     if (device()) { /* If it's on mobile */
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true";
@@ -142,10 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
         main.style.marginLeft = '30px';
         line.style.display = 'none';
         center.style.alignContent = 'center';
-        var br = document.createElement("br");
-        brake.appendChild(br);
-        brake.appendChild(br);
     } else {
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true";
-    }
+        timeDiv.style.paddingLeft = '290px';
+    }   
 });

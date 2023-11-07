@@ -30,7 +30,7 @@
                 <img src="https://profile-counter.glitch.me/Hobospider132/count.svg" id="count">
               </span>
             </div>
-            <div class="anime" style="padding-top: 25px">
+            <!-- <div class="anime" style="padding-top: 25px">
               <span id="birthText">Birthday meter: </span>
               <div class="birth-bar" style="display: inline-block;">
                 <div class="birth-progress"></div>
@@ -38,7 +38,7 @@
             </div>
             <div class="anime" id="birthdayMessage" style="display: none;">
               <span style="font-size: clamp(30px, 1vw, 50px);">Today is my birthday!</span>
-            </div>
+            </div> -->
             <div class="wrapper">
               <section style="padding-top: 0px;"">
                 <div class="bounce"></div>
@@ -47,9 +47,31 @@
               </section>
             </div>
             <h3>About me</h3>
-            <p>Seems like I am always coding late at night</p>
-            <p>Aiming to become a full stack dev. Opensource lover</p>
-            <p>'Knock first! Now walk out and wait till I say "Come in please!"'</p>
+            <p>Hi, I'm Hobo!</p>
+            <p>I'm a developer from Berlin, Germany.</p>
+            <p>Feel free to use anything you want from my website</p>
+            <p>It's open source after all >.<</p>
+
+            <script src="JS/clock.js"></script>
+            <div id="time" class="timezone">
+              <p style="color: aquamarine; font-size: 15px; margin-top: 15px;" id="diff"></p>
+              <div class="time">
+                <span id="hour"></span>
+                <span class="colon">:</span>
+                <span id="min"></span>
+                <span class="colon">:</span>
+                <span id="sec"></span>
+              </div>
+
+              <div class="date">
+                <span style="color: aquamarine;" id="day"></span>
+                <span style="color: aquamarine;">•</span>
+                <span style="color: aquamarine;" id="month"></span>
+                <span style="color: aquamarine;">•</span>
+                <span style="color: aquamarine;" id="year"></span>
+              </div>
+            </div>
+            
             <h3>Favourite Projects</h3>
             <div class="wrapper" style="margin-top: -50px;">
               <a href='https://huggingface.co/Hobospider132/DialoGPT-Mahiru-Proto' target='_blank'>
@@ -68,56 +90,61 @@
                 </section>
               </a>
             </div>
+
             <h3>Current Projects</h3>
-              <div class="wrapper" style="margin-top: -50px;">
-                <a href='https://github.com/Hobospider132/Rust-OS' target='_blank'>
-                  <section>
-                    <div class="box">OS in Rust</div>
-                  </section>
-                </a>
-                <a href='https://github.com/Hobospider132/godot-platformer' target='_blank'>
-                  <section>
-                    <div class="box">GODOT Platformer</div>
-                  </section>
-                </a>
-                <a href='https://github.com/Hobospider132/learn-godot' target="_blank">
-                  <section>
-                    <div class="box">Learning GODOT</div>
-                  </section>
-                </a>
-              </div>
-              <span>
-                <h3>Contacts:</h3>
-              </span>
-              <div class="wrapper" id="contact-wrapper">
-                <a class="contact" href='https://www.discord.com/users/649892152398315540' target='_blank'>
-                  <img class="size" src="images/discord.webp">
-                </a>
-                <a class="contact" href="https://twitter.com/Hobospider132" target='_blank'>
-                  <img class="size" src="images/twitter.webp">
-                </a>
-                <a class="contact" href='https://www.reddit.com/u/Hobospider365' target='_blank'>
-                  <img class="size" src="images/reddit.webp">
-                </a>
-                <a class="contact" href="mailto:Hobospider132@gmail.com" target="_blank">
-                  <img class="size" src="images/envelope.webp">
-                </a>
-              </div>
-              <h3>Osu!</h3>
-              <div class="wrapper">
-                  <a class="contact" href="https://osu.ppy.sh/users/Hobospider132" target='_blank'>
-                    <img id="osu">
-                  </a>
-              </div>
-              <h3>Skin that I play with: </h3>
-              <a href="https://github.com/Hobospider132/hobospider132.github.io/raw/main/Permanent_Horizons.osk" download>
-                <img class="contact" src="images/osu.webp" height="300" width="300">
+            <div class="wrapper" style="margin-top: -50px;">
+              <a href='https://github.com/Hobospider132/Rust-OS' target='_blank'>
+                <section>
+                  <div class="box">OS in Rust</div>
+                </section>
               </a>
-          </secti>
+              <a href='https://github.com/Hobospider132/godot-platformer' target='_blank'>
+                <section>
+                  <div class="box">GODOT Platformer</div>
+                </section>
+              </a>
+              <a href='https://github.com/Hobospider132/learn-godot' target="_blank">
+                <section>
+                  <div class="box">Learning GODOT</div>
+                </section>
+              </a>
+            </div>
+
+            <span>
+              <h3>Contacts:</h3>
+            </span>
+
+            <div class="wrapper" id="contact-wrapper">
+              <a class="contact" href='https://www.discord.com/users/649892152398315540' target='_blank'>
+                <img class="size" src="images/discord.webp">
+              </a>
+              <a class="contact" href="https://twitter.com/Hobospider132" target='_blank'>
+                <img class="size" src="images/twitter.webp">
+              </a>
+              <a class="contact" href='https://www.reddit.com/u/Hobospider365' target='_blank'>
+                <img class="size" src="images/reddit.webp">
+              </a>
+              <a class="contact" href="mailto:Hobospider132@gmail.com" target="_blank">
+                <img class="size" src="images/envelope.webp">
+              </a>
+            </div>
+
+            <h3>Osu!</h3>
+            <div class="wrapper">
+                <a class="contact" href="https://osu.ppy.sh/users/Hobospider132" target='_blank'>
+                  <img id="osu">
+                </a>
+            </div>
+            <h3>Skin that I play with: </h3>
+            <a href="https://github.com/Hobospider132/hobospider132.github.io/raw/main/Permanent_Horizons.osk" download>
+              <img class="contact" src="images/osu.webp" height="300" width="300">
+            </a>
+          </div>
+        </section>
       </div>
     </main>
     <footer>
-      <p id="center" style="font-size: clamp(10px,3vw,50px);"><p class="anime"><strong>Have a good day!</strong></p><p style="font-size: 2em; color: white;" id="line">|</p><p id="break"></p><p class="anime"><strong><a href='https://github.com/hobospider132/hobospider132.github.io' target="_blank">Source code</a></strong></p></p>
+      <p id="center" style="font-size: clamp(10px,3vw,50px);"><p class="anime"><strong>Have a good day!</strong></p><p style="font-size: 2em; color: white;" id="line">|</p><p class="anime"><strong><a href='https://github.com/hobospider132/hobospider132.github.io' target="_blank">Source code</a></strong></p></p>
     </footer>
   </body>
 </html>
