@@ -98,6 +98,15 @@ document.addEventListener('DOMContentLoaded', function () {
         return regex.test(navigator.userAgent);
     }
 
+    function preloadImage(url)
+    {
+        var img=new Image();
+        img.src=url;
+    }
+
+    mobileLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true");
+    desktopLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true");
+
     let osuLink = document.getElementById('osu');
     let contact = document.getElementById('contact-wrapper');
     let countClamp = document.getElementById('countClamp');
@@ -107,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let timeDiv = document.getElementById('time');
 
     if (device()) { /* If it's on mobile */
-        osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true";
+        osuLink.src = mobileLink;
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '20px';
         countClamp.style.width = 'clamp(380px,8vw,105px)';
@@ -116,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
         center.style.alignContent = 'center';
         timeDiv.style.marginLeft = '60px';
     } else {
-        osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true";
+        osuLink.src = desktopLink;
         timeDiv.style.marginLeft = '340px';
     }   
 });
