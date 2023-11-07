@@ -102,10 +102,11 @@ document.addEventListener('DOMContentLoaded', function () {
     {
         var img=new Image();
         img.src=url;
+        return img;
     }
 
-    mobileLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true");
-    desktopLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true");
+    const mobileLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true");
+    const desktopLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true");
 
     let osuLink = document.getElementById('osu');
     let contact = document.getElementById('contact-wrapper');
@@ -116,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let timeDiv = document.getElementById('time');
 
     if (device()) { /* If it's on mobile */
-        osuLink.src = mobileLink;
+        osuLink.src = mobileLink.src;
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '20px';
         countClamp.style.width = 'clamp(380px,8vw,105px)';
@@ -125,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
         center.style.alignContent = 'center';
         timeDiv.style.marginLeft = '60px';
     } else {
-        osuLink.src = desktopLink;
+        osuLink.src = desktopLink.src;
         timeDiv.style.marginLeft = '340px';
     }   
 });
