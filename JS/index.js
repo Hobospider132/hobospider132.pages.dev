@@ -18,9 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
     let center = document.getElementById('center');
     let timeDiv = document.getElementById('time');
 
+    function preloadImage(url)
+    {
+        var img = new Image();
+        img.src = url;
+        return img;
+    }
+
     if (device()) { 
         /* If it's on mobile */
-        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
+        osuLink.src = preloadImage('https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true');
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '20px';
         countClamp.style.width = 'clamp(380px,8vw,105px)';
@@ -30,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         timeDiv.style.marginLeft = '60px';
     } else {
         /* If it's on desktop */
-        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
+        osuLink.src = preloadImage('https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true');
         timeDiv.style.marginLeft = '340px';
     }   
 });
