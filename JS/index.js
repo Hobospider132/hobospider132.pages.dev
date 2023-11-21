@@ -1,6 +1,3 @@
-/*Code modified from http://xahlee.info/js/js_raining_hearts.html (For raining hearts only)*/
-// This somehow breaks without the hearts function??
-
 document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener("load", event => {
         const textElement = document.getElementById('visitorCount');
