@@ -98,16 +98,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
         return regex.test(navigator.userAgent);
     }
-
-    function preloadImage(url)
-    {
-        var img=new Image();
-        img.src=url;
-        return img;
-    }
-
-    const mobileLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true");
-    const desktopLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true");
+    
+    const mobileLink = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true"
+    const desktopLink = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true"
 
     let osuLink = document.getElementById('osu');
     let contact = document.getElementById('contact-wrapper');
