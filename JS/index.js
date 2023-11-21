@@ -3,7 +3,7 @@ window.addEventListener("load", event => {
     textElement.style.display = 'none';
 }); 
   
-/* Edit the page if it's on mobile so it works and everything fits (intended for iphone xr)*/
+/* Edit the page if it's on mobile so it works and everything fits (intended for iPhone XR) */
 function device() {
     const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     return regex.test(navigator.userAgent);
@@ -21,15 +21,15 @@ let center = document.getElementById('center');
 let timeDiv = document.getElementById('time');
 
 if (device()) { /* If it's on mobile */
-    osuLink.src = mobileLink.src;
+    osuLink.src = mobileLink;
     contact.style.width = 'clamp(380px, 8vw, 105px)';
     contact.style.marginLeft = '20px';
     countClamp.style.width = 'clamp(380px,8vw,105px)';
     main.style.marginLeft = '30px';
     line.style.display = 'none';
-    center.style.alignContent = 'center';
+    center.style.alignItems = 'center'; // Fix here
     timeDiv.style.marginLeft = '60px';
 } else {
-    osuLink.src = desktopLink.src;
-    // timeDiv.style.marginLeft = '340px';
-}   
+    osuLink.src = desktopLink;
+    timeDiv.style.marginLeft = '340px';
+}
