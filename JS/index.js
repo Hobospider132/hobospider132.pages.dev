@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener("load", event => {
         const textElement = document.getElementById('visitorCount');
         textElement.style.display = 'none';
-        Love()
     });
       
     /* Edit the page if it's on mobile so it works and everything fits (intended for iphone xr)*/
@@ -11,9 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return regex.test(navigator.userAgent);
     }
     
-    const mobileLink = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true"
-    const desktopLink = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true"
-
     let osuLink = document.getElementById('osu');
     let contact = document.getElementById('contact-wrapper');
     let countClamp = document.getElementById('countClamp');
@@ -22,8 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let center = document.getElementById('center');
     let timeDiv = document.getElementById('time');
 
-    if (device()) { /* If it's on mobile */
-        osuLink.src = mobileLink.src;
+    if (device()) { 
+        /* If it's on mobile */
+        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '20px';
         countClamp.style.width = 'clamp(380px,8vw,105px)';
@@ -32,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
         center.style.alignContent = 'center';
         timeDiv.style.marginLeft = '60px';
     } else {
-        osuLink.src = desktopLink.src;
+        /* If it's on desktop */
+        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
         timeDiv.style.marginLeft = '340px';
     }   
 });
