@@ -1,12 +1,12 @@
-    function preloadImage(url)
-    {
-        var img=new Image();
-        img.src=url;
-        return img;
-    }
+function preloadImage(url)
+{
+    var img=new Image();
+    img.src=url;
+    return img;
+}
 
-    const mobileLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true");
-    const desktopLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true");
+const mobileLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true");
+const desktopLink = preloadImage("https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true");
 
 document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener("load", event => {
