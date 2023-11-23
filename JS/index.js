@@ -29,18 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const textElement = document.getElementById('visitorCount');
         textElement.style.display = 'none';
     });
-    
-    let osuLink = document.getElementById('osu');
+
     let contact = document.getElementById('contact-wrapper');
     let countClamp = document.getElementById('countClamp');
     let main = document.getElementById('main');
     let line = document.getElementById('line');
     let center = document.getElementById('center');
     let timeDiv = document.getElementById('time');
+    let timeFill = document.getElementById('time-filler');
     
     if (device()) { 
         /* If it's on mobile */
-        osuLink.src = imageUrl;
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '20px';
         countClamp.style.width = 'clamp(380px,8vw,105px)';
@@ -48,9 +47,30 @@ document.addEventListener('DOMContentLoaded', function () {
         line.style.display = 'none';
         center.style.alignContent = 'center';
         timeDiv.style.marginLeft = '60px';
+        timeFill.style.marginLeft = '60px';
+        window.addEventListener('scroll', function () {
+            let osuContainer = document.getElementById('osuContainer');
+            let osuLink = document.getElementById('osu');
+    
+            if (window.scrollY + window.innerHeight > osuContainer.offsetTop) {
+                osuLink.src = imageUrl;
+                // Remove the scroll event listener after loading the image
+                window.removeEventListener('scroll', arguments.callee);
+            }
+        });
     } else {
         /* If it's on desktop */
-        osuLink.src = imageUrl;
         timeDiv.style.marginLeft = '340px';
+        timeFill.style.marginLeft = '340px';
+        window.addEventListener('scroll', function () {
+            let osuContainer = document.getElementById('osuContainer');
+            let osuLink = document.getElementById('osu');
+    
+            if (window.scrollY + window.innerHeight > osuContainer.offsetTop) {
+                osuLink.src = imageUrl;
+                // Remove the scroll event listener after loading the image
+                window.removeEventListener('scroll', arguments.callee);
+            }
+        });
     }   
 });
