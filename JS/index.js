@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     let contact = document.getElementById('contact-wrapper');
-    let countClamp = document.getElementById('countClamp');
     let main = document.getElementById('main');
     let line = document.getElementById('line');
     let center = document.getElementById('center');
@@ -42,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         /* If it's on mobile */
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '20px';
-        countClamp.style.width = '8vw';
         main.style.marginLeft = '30px';
         line.style.display = 'none';
         center.style.alignContent = 'center';
