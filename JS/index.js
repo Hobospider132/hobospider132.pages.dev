@@ -18,10 +18,10 @@ function preloadImage(url, priority) {
 
 if (device()) {
     var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
-    preloadImage(imageUrl, 'high');
+    preloadImage(imageUrl, 'low');
 } else {
     var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
-    preloadImage(imageUrl, 'high');
+    preloadImage(imageUrl, 'low');
 }
 
 document.addEventListener('DOMContentLoaded', function () {
