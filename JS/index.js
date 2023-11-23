@@ -4,11 +4,24 @@ function device() {
     return regex.test(navigator.userAgent);
 }
 
-let preload = document.getElementById('osu-load');
+function preloadImage(url, priority) {
+    const img = new Image();
+    
+    // Set the priority (optional, default is 'auto')
+    if (priority) {
+      img.imagePriority = priority;
+    }
+    
+    // Set the URL to preload
+    img.src = url;
+}
+
 if (device()) {
-    preload.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
+    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
+    preloadImage(imageUrl, 'high');
 } else {
-    preload.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
+    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
+    preloadImage(imageUrl, 'high');
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -27,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     if (device()) { 
         /* If it's on mobile */
-        osuLink.src = preload.src;
+        osuLink.src = imageUrl;
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '20px';
         countClamp.style.width = 'clamp(380px,8vw,105px)';
@@ -37,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         timeDiv.style.marginLeft = '60px';
     } else {
         /* If it's on desktop */
-        osuLink.src = preload.src
+        osuLink.src = imageUrl;
         timeDiv.style.marginLeft = '340px';
     }   
 });
