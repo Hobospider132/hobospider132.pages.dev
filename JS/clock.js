@@ -26,8 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     timeFill.style.display = 'block';
 
     function dateNow() {
-        // Create a new Date object in Germany's timezone (CET)
-        const options = { timeZone: 'Europe/Berlin', hour12: false };
+        const options = { timeZone: 'Australia/Sydney', hour12: false };
         const rn = new Date().toLocaleString('en-GB', options);
 
         const parts = rn.split(', ');
@@ -62,11 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let diff;
         
         if(diffHours < 0) {
-        diff = `${Math.abs(diffHours)} hours behind | UTC +1`;
-        }else if(diffHours > 0){
-        diff = `${diffHours} hours ahead | UTC +1`;
-        } else{
-        diff = `Same timezone | UTC +1`
+            diff = `${Math.abs(diffHours)} hours behind | UTC +8`;
+        } else if (diffHours > 0) {
+            diff = `${diffHours} hours ahead | UTC +8`;
         }
 
         timeDiff.innerHTML = diff;
