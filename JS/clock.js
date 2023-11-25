@@ -60,15 +60,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const diffMins = (currentDate - new Date(rn)) / (1000 * 60); // convert to mins
         const diffHours = diffMins / 60; // convert to hours
 
-        let diff;
+        let diff = document.getElementById('diff');
 
         if (diffHours < 0) {
             diff = `${Math.abs(diffHours)} hours behind | UTC +${isDST ? 11 : 10}`;
         } else if (diffHours > 0) {
             diff = `${diffHours} hours ahead | UTC +${isDST ? 11 : 10}`;
+        } else {
+            diff.style.display = 'none';
         }
 
-        timeDiff.innerHTML = diff;
+        diff.innerHTML = diff;
     }
 
     // Function to check if daylight saving time is currently observed
