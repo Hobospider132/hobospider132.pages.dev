@@ -1,4 +1,3 @@
-// code for clock
 document.addEventListener('DOMContentLoaded', function() {
     async function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,8 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
     timeFill.style.display = 'block';
 
     function dateNow() {
+        const currentDate = new Date();
+        const isDST = isDaylightSavingTime(currentDate);
+
         const options = { timeZone: 'Australia/Sydney', hour12: false };
-        const rn = new Date().toLocaleString('en-GB', options);
+        const rn = currentDate.toLocaleString('en-GB', options);
 
         const parts = rn.split(', ');
         const [dateStr, timeStr] = parts;
@@ -37,37 +39,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
         month.innerHTML = monthNow;
         day.innerHTML = dayNow;
-        year.innerHTML = `${yearNow} | CET time`;
+        year.innerHTML = `${yearNow} | ${isDST ? 'AEDT' : 'AEST'} time`;
 
         if (hrNow > 12) {
             hrNow = hrNow - 12;
         }
-        
+
         if (hrNow == 0) {
             hrNow = 12;
         }
-        
+
         hour.innerHTML = hrNow;
         sec.innerHTML = String(secNow).padStart(2, '0');
         min.innerHTML = String(minNow).padStart(2, '0');
 
         // time for the user (used to calculate offset for user)
         const userOptions = { hour12: false };
-        const userRn = new Date().toLocaleString('en-GB', userOptions);
+        const userRn = currentDate.toLocaleString('en-GB', userOptions);
 
-        const diffMins = (new Date(userRn) - new Date(rn)) / (1000 * 60); // convert to mins
+        const diffMins = (currentDate - new Date(rn)) / (1000 * 60); // convert to mins
         const diffHours = diffMins / 60; // convert to hours
 
         let diff;
-        
-        if(diffHours < 0) {
-            diff = `${Math.abs(diffHours)} hours behind | UTC +8`;
+
+        if (diffHours < 0) {
+            diff = `${Math.abs(diffHours)} hours behind | UTC +${isDST ? 11 : 10}`;
         } else if (diffHours > 0) {
-            diff = `${diffHours} hours ahead | UTC +8`;
+            diff = `${diffHours} hours ahead | UTC +${isDST ? 11 : 10}`;
         }
 
         timeDiff.innerHTML = diff;
+    }
 
+    // Function to check if daylight saving time is currently observed
+    function isDaylightSavingTime(date) {
+        const january = new Date(date.getFullYear(), 0, 1);
+        const july = new Date(date.getFullYear(), 6, 1);
+        return date.getTimezoneOffset() < Math.max(january.getTimezoneOffset(), july.getTimezoneOffset());
     }
 
     setInterval(dateNow, 1000);
