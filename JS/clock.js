@@ -66,9 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
             diff = `${Math.abs(diffHours)} hours behind | UTC +${isDST ? 11 : 10}`;
         } else if (diffHours > 0) {
             diff = `${diffHours} hours ahead | UTC +${isDST ? 11 : 10}`;
-        } else {
-            diff = ""; 
-        } 
+        // } else {
+        //     diff = ""; 
+        // } 
 
         diff.innerHTML = diff;
     }
