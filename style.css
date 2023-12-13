@@ -262,7 +262,7 @@ section h3 {
 /* from here it's going to be the code for the clock */
 
 .timezone {
-  opacity: 0.75;
+  opacity: 0.65;
   border-radius: 40px;
   width: clamp(300px,8vw,105px);
   position: relative;
