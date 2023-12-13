@@ -214,7 +214,7 @@ section h3 {
 .anime {
   --border-right: 6px;
   --text-stroke-color: aquamarine;
-  --animation-color: purple;
+  --animation-color: white;
   --fs-size: 2em;
   letter-spacing: 3px;
   text-decoration: none;
