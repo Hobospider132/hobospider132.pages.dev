@@ -342,7 +342,7 @@ section h3 {
 .elements { 
   display: flex;
   justify-content: center;
-  gap: 4rem; 
+  gap: 2rem; 
 }
 
 .el {
