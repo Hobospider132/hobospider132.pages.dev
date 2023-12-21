@@ -213,7 +213,7 @@ section h3 {
 
 .anime {
   --border-right: 6px;
-  --text-stroke-color: white;
+  --text-stroke-color: aqumarine;
   --animation-color: white;
   --fs-size: 2em;
   letter-spacing: 3px;
@@ -271,7 +271,7 @@ section h3 {
   align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
-  --text-stroke-color: aquamarine;
+  --text-stroke-color: white;
   text-decoration: none;
   font-family: "Arial";
   position: relative;
