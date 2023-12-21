@@ -13,14 +13,9 @@
   color: transparent;
   font-size: 50px;
   -webkit-text-stroke: 1px aquamarine;
-  background-color: black; 
   padding-left: 25px; 
   padding-right: 25px;
   border-radius: 25px;
-}
-
-.fancy:active {
-  transform: perspective(300px) translateZ(-25px);
 }
 
 body {
@@ -213,7 +208,7 @@ section h3 {
 .anime {
   --border-right: 6px;
   --text-stroke-color: aqumarine;
-  --animation-color: white;
+  --animation-color: aquamarine;
   --fs-size: 2em;
   letter-spacing: 3px;
   text-decoration: none;
