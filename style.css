@@ -207,8 +207,7 @@ section h3 {
 
 .anime {
   --border-right: 6px;
-  --text-stroke-color: aqumarine;
-  --animation-color: aquamarine;
+  --animation-color: white;
   --fs-size: 2em;
   letter-spacing: 3px;
   text-decoration: none;
@@ -218,7 +217,7 @@ section h3 {
   position: relative;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
+  -webkit-text-stroke: 1px aquamarine;
 }
 
 .hover-text {
@@ -265,14 +264,13 @@ section h3 {
   align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
-  --text-stroke-color: aquamarine;
   text-decoration: none;
   font-family: "Arial";
   position: relative;
   text-transform: uppercase;
   color: transparent;
   font-size: 50px;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
+  -webkit-text-stroke: 1px aquamarine;
   background-color: #4f132b; 
 }
 
