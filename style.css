@@ -1,10 +1,9 @@
-/* * {
+* {
   border: 1px solid red;
-} */
+}
 
 
 .fancy {
-  --text-stroke-color: aquamarine;
   letter-spacing: 3px;
   text-decoration: none;
   padding-right: 6px;
@@ -13,8 +12,8 @@
   text-transform: uppercase;
   color: transparent;
   font-size: 50px;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
-  background-color:  black; 
+  -webkit-text-stroke: 1px aquamarine;
+  background-color: black; 
   padding-left: 25px; 
   padding-right: 25px;
   border-radius: 25px;
