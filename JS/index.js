@@ -6,13 +6,9 @@ function device() {
 
 function preloadImage(url, priority) {
     const img = new Image();
-    
-    // Set the priority (optional, default is 'auto')
     if (priority) {
       img.imagePriority = priority;
     }
-    
-    // Set the URL to preload
     img.src = url;
 }
 
@@ -35,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let line = document.getElementById('line');
     let center = document.getElementById('center');
     let timeDiv = document.getElementById('time');
-    let timeFill = document.getElementById('time-filler');
+    let timeFill = document.getElementById('time-filler');	
     
     if (device()) { 
         /* If it's on mobile */
