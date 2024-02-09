@@ -32,7 +32,7 @@ body {
 }
 
 .bg {
-  background-image: linear-gradient(rgba(90, 44, 44, 0.75), rgba(147, 146, 156, 0.75)), url('images/background.avif');
+  background-image: linear-gradient(rgba(90, 44, 44, 0.75), rgba(147, 146, 156, 0.75)), url('images/background.jpg');
   background-size: cover;
   background-color: #90EE90; 
   background-attachment: fixed;
