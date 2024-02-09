@@ -12,11 +12,17 @@ function preloadImage(url, priority) {
     img.src = url;
 }
 
+preloadImage("https://hobospider132.github.io/images/discord.webp", 'high');
+preloadImage("https://hobospider132.github.io/images/twitter.webp", 'high');
+preloadImage("https://hobospider132.github.io/images/reddit.webp", 'high');
+preloadImage("https://hobospider132.github.io/images/envelope.webp", 'high');
+preloadImage("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Osu%21_Logo_2016.svg/512px-Osu%21_Logo_2016.svg.png", 'high');
+
 if (device()) {
-    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
+    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&mini=true';
     preloadImage(imageUrl, 'low');
 } else {
-    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
+    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&w=400&h=233';
     preloadImage(imageUrl, 'low');
 }
 
