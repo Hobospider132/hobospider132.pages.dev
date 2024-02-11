@@ -1,23 +1,26 @@
 /* Edit the page if it's on mobile so it works and everything fits (intended for iphone xr)*/
+
 function device() {
     const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     return regex.test(navigator.userAgent);
 }
 
-// function preloadImage(url, priority) {
-//     const img = new Image();
-//     if (priority) {
-//       img.imagePriority = priority;
-//     }
-//     img.src = url;
-// }
-
 if (device()) {
     var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
-    // preloadImage(imageUrl, 'low');
 } else {
     var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
-    // preloadImage(imageUrl, 'low');
+}
+
+function load() {
+    window.addEventListener('scroll', function () {
+        let osuContainer = document.getElementById('osuContainer');
+        let osuLink = document.getElementById('osu');
+
+        if (window.scrollY + window.innerHeight > osuContainer.offsetTop) {
+            osuLink.src = imageUrl;
+            window.removeEventListener('scroll', arguments.callee);
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -26,13 +29,23 @@ document.addEventListener('DOMContentLoaded', function () {
         textElement.style.display = 'none';
     });
 
+    lozad('.lozad', {
+        load: function(el) {
+            el.src = el.dataset.src;
+            el.onload = function() {
+                el.classList.add('fade')
+                el.classList.add('size')
+            }
+        }
+    }).observe()
+
     let contact = document.getElementById('contact-wrapper');
     let main = document.getElementById('main');
     let line = document.getElementById('line');
     let center = document.getElementById('center');
     let timeDiv = document.getElementById('time');
     let timeFill = document.getElementById('time-filler');	
-    
+    let osuLink = document.getElementById('osu');
     if (device()) { 
         /* If it's on mobile */
         contact.style.width = 'clamp(380px, 8vw, 105px)';
@@ -42,29 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
         center.style.alignContent = 'center';
         timeDiv.style.marginLeft = '60px';
         timeFill.style.marginLeft = '60px';
-        // window.addEventListener('scroll', function () {
-        //     let osuContainer = document.getElementById('osuContainer');
-        //     let osuLink = document.getElementById('osu');
-    
-        //     if (window.scrollY + window.innerHeight > osuContainer.offsetTop) {
-        //         osuLink.src = imageUrl;
-        //         // Remove the scroll event listener after loading the image
-        //         window.removeEventListener('scroll', arguments.callee);
-        //     }
-        // });
+        load();
     } else {
         /* If it's on desktop */
         timeDiv.style.marginLeft = '340px';
         timeFill.style.marginLeft = '340px';
-        // window.addEventListener('scroll', function () {
-        //     let osuContainer = document.getElementById('osuContainer');
-        //     let osuLink = document.getElementById('osu');
-    
-        //     if (window.scrollY + window.innerHeight > osuContainer.offsetTop) {
-        //         osuLink.src = imageUrl;
-        //         // Remove the scroll event listener after loading the image
-        //         window.removeEventListener('scroll', arguments.callee);
-        //     }
-        // });
+        load();
     }   
 });

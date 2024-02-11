@@ -28,7 +28,7 @@
             <div class="fancy" style="display: inline-block; opacity: 0.65; background-color: black;">
               <span>Visitor Count: </span><span id="visitorCount">Loading...</span>
               <span>
-                <img data-src="https://profile-counter.glitch.me/Hobospider132/count.svg" id="count" width="340" height="40" style="opacity: 0.65;">
+                <img src="https://profile-counter.glitch.me/Hobospider132/count.svg" id="count" width="340" height="40" style="opacity: 0.65;">
               </span>
             </div>
 
@@ -73,7 +73,7 @@
                 <section>
                   <div class="box">
                     <h><strong>Finance Calculator</strong></h>
-                    <m>Tax calculation with 2021 ATO table</m>
+                    <m>CLI tax calculator</m>
                   </div>
                 </section>
               </a>
@@ -82,6 +82,14 @@
                   <div class="box">
                    <h><strong>OS in Rust</strong></h>
                    <m>Low level development</m>
+                  </div>
+                </section>
+              </a>
+              <a href='https://github.com/Sgushyonka/godot-platformer' target='_blank'>
+                <section>
+                  <div class="box">
+                    <h><strong>GODOT Game</strong></h>
+                    <m>Game for CAS</m>
                   </div>
                 </section>
               </a>
@@ -117,7 +125,7 @@
                 <section>
                   <div class="box">
                     <h><strong>JOHN</strong></h>
-                    <m>Homework organiser with MongoDB</m>
+                    <m>Homework organiser</m>
                   </div>
                 </section>
               </a>
@@ -127,23 +135,22 @@
               <h3>Contacts:</h3>
             </span>
 
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js">
-              const observer = lozad();
-              observer.observe();
-            </script>
+            <!-- importing files for lozad -->
+            <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+            <script src="https://raw.githubusercontent.com/w3c/IntersectionObserver/master/polyfill/intersection-observer.js"></script>
 
             <div class="wrapper" id="contact-wrapper">
               <a class="contact" href='https://www.discord.com/users/649892152398315540' target='_blank'>
-                <img class="lozad size" data-src="images/discord.webp">
+                <img class="lozad" data-src="images/discord.webp">
               </a>
               <a class="contact" href="https://twitter.com/Hobospider132" target='_blank'>
-                <img class="lozad size" data-src="images/twitter.webp">
+                <img class="lozad" data-src="images/twitter.webp">
               </a>
               <a class="contact" href='https://www.reddit.com/u/Hobospider365' target='_blank'>
-                <img class="lozad size" data-src="images/reddit.webp">
+                <img class="lozad" data-src="images/reddit.webp">
               </a>
               <a class="contact" href="mailto:Hobospider132@gmail.com" target="_blank">
-                <img class="lozad size" data-src="images/envelope.webp">
+                <img class="lozad" data-src="images/envelope.webp">
               </a>
             </div>
 
@@ -155,7 +162,7 @@
             </div>
             <h3>Skin that I play with: </h3>
             <a href="https://github.com/Hobospider132/hobospider132.github.io/raw/main/osu_skin/Permanent_Horizons.osk" download>
-              <img class="contact profile-img" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Osu%21_Logo_2016.svg/512px-Osu%21_Logo_2016.svg.png">
+              <img class="contact profile-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Osu%21_Logo_2016.svg/512px-Osu%21_Logo_2016.svg.png">
 	      <!-- Not sure how but somehow a wikimedia pic is better than a saved version, ig it helps with saving storage too? But loading times... !-->
             </a>
           </div>
