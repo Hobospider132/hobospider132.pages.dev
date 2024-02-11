@@ -24,19 +24,25 @@
               <span class="hover-text" aria-hidden="true" style="font-size: clamp(40px,8vw,105px);">&nbsp;<a
                   href='https://github.com/Hobospider132' target='_blank' style="text-decoration: none; color: white;">Hobospider132</a>&nbsp;</span>
             </div>
+            
+	          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js">
+              const observer = lozad();
+              observer.observe();
+            </script>
+
             <div class="fancy" style="display: inline-block; opacity: 0.65; background-color: black;">
               <span>Visitor Count: </span><span id="visitorCount">Loading...</span>
               <span>
-                <img src="https://profile-counter.glitch.me/Hobospider132/count.svg" id="count" width="340" height="40" style="opacity: 0.65;">
+                <img class="lozad" data-src="https://profile-counter.glitch.me/Hobospider132/count.svg" id="count" width="340" height="40" style="opacity: 0.65;">
               </span>
             </div>
 
             <div>
-		<section style="padding-top: 0px;">
-                    <div class="bounce"></div>
-		    <h1 class="fancy">Hello, I'm Hobo.</h1>
-                    <div class="bounce"></div>
-		</section>
+            <section style="padding-top: 0px;">
+                <div class="bounce"></div>
+                <h1 class="fancy">Hello, I'm Hobo.</h1>
+                <div class="bounce"></div>
+            </section>
             </div>
             <h3>About me</h3>
             <p>I'm a developer from Sydney, Australia.</p>
@@ -66,7 +72,6 @@
               <span style="color: aquamarine;" >&nbsp;Loading...&nbsp;</span>
             </div>
 
-            
             <h3>Favourite Projects</h3>
             <div class="wrapper" style="margin-top: -50px;">
               <a href='https://huggingface.co/Hobospider132/DialoGPT-Mahiru-Proto' target='_blank'>
@@ -106,29 +111,29 @@
 
             <div class="wrapper" id="contact-wrapper">
               <a class="contact" href='https://www.discord.com/users/649892152398315540' target='_blank'>
-                <img class="size" src="images/discord.webp">
+                <img class="lozad size" data-src="images/discord.webp">
               </a>
               <a class="contact" href="https://twitter.com/Hobospider132" target='_blank'>
-                <img class="size" src="images/twitter.webp">
+                <img class="lozad size" data-src="images/twitter.webp">
               </a>
               <a class="contact" href='https://www.reddit.com/u/Hobospider365' target='_blank'>
-                <img class="size" src="images/reddit.webp">
+                <img class="lozad size" data-src="images/reddit.webp">
               </a>
               <a class="contact" href="mailto:Hobospider132@gmail.com" target="_blank">
-                <img class="size" src="images/envelope.webp">
+                <img class="lozad size" data-src="images/envelope.webp">
               </a>
             </div>
 
             <h3>Osu!</h3>
             <div class="wrapper" id="osuContainer">
                 <a class="contact" href="https://osu.ppy.sh/users/Hobospider132" target='_blank'>
-                  <img id="osu">
+                  <img class="lozad" id="osu">
                 </a>
             </div>
             <h3>Skin that I play with: </h3>
             <a href="https://github.com/Hobospider132/hobospider132.github.io/raw/main/osu_skin/Permanent_Horizons.osk" download>
-              <img class="contact profile-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Osu%21_Logo_2016.svg/512px-Osu%21_Logo_2016.svg.png">
-	      <!-- Not sure how but somehow a wikimedia pic is better than a saved version, ig it helps with saving storage too? But loading times... --!>
+              <img class="contact profile-img lozad" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Osu%21_Logo_2016.svg/512px-Osu%21_Logo_2016.svg.png">
+	      <!-- Not sure how but somehow a wikimedia pic is better than a saved version, ig it helps with saving storage too? But loading times... !-->
             </a>
           </div>
         </section>
