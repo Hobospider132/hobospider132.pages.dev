@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
             hrNow = 12;
         }
 
-        hour.innerHTML = "0"+String(hrNow);
+        hour.innerHTML = String(hrNow);
         sec.innerHTML = String(secNow).padStart(2, '0');
         min.innerHTML = String(minNow).padStart(2, '0');
 

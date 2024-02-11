@@ -1,6 +1,6 @@
 /* * {
   border: 1px solid red;
-} */
+}  */
 
 
 .fancy {
@@ -117,18 +117,28 @@ body {
 }
 
 .box {
-  background-color: #9b111e;
+  background-color: #0d578bc4;
   color: #eee;
   transition: transform 0.3s ease-in-out;
   font-family: sans-serif;
-  font-size: 1.3rem;
   font-weight: bolder;
   font-style: italic;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 16px;
   box-shadow: 2px 2px 5px 10px aquamarine;
-  width: 100px;
-  height: 50px;
+  min-width: 100px;
+  min-height: 50px;
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+}
+
+.box h {
+  font-size: 17px;
+}
+
+.box m {
+  font-size: 15px;
 }
 
 footer {
@@ -196,6 +206,7 @@ section h3 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-evenly;
 }
 
