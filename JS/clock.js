@@ -33,10 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let num_AusHr = Number(AusHr);
         let num_UTCHr = Number(UTCHr);
-
-        console.log(num_AusHr);
-        console.log(num_UTCHr);
-
         return num_AusHr - num_UTCHr === -1 || 11;
     }
 

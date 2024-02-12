@@ -27,12 +27,11 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener("load", event => {
         const textElement = document.getElementById('visitorCount');
         textElement.style.display = 'none';
-    });
+    });  
 
     lozad('.lozad', {
         load: function(el) {
             el.src = el.dataset.src;
-            el.classList.add('fade');
         }
     }).observe()
 
