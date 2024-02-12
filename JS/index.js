@@ -29,12 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
         textElement.style.display = 'none';
     });
 
+    const elements = document.querySelectorAll();
+    for (element in elements) {
+        let bg = document.getElementById('bg');
+        if (element != bg) {
+            element.classList.add('fade');
+        }
+    }
+
     lozad('.lozad', {
         load: function(el) {
             el.src = el.dataset.src;
-            el.onload = function() {
-                el.classList.add('fade')
-            }
         }
     }).observe()
 
