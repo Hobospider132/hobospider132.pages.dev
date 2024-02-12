@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
             el.src = el.dataset.src;
             el.onload = function() {
                 el.classList.add('fade')
-                el.classList.add('size')
             }
         }
     }).observe()
