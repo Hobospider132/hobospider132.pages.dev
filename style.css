@@ -145,7 +145,6 @@ footer {
   text-align: center;
   display: flex;
   position: relative;
-  color: purple;
 }
 
 .box:hover {
@@ -338,14 +337,23 @@ section h3 {
   }
 }
 
-fade {
+.fade {
   animation-name: fade;
-  animation-duration: 2s;
+  animation-duration: 4s;
 }
 
 @keyframes fade {
   from {
       opacity: 0;
+  }
+  to {
+      opacity: 0.25;
+  }
+  to {
+      opacity: 0.50;
+  }
+  to {
+      opacity: 0.75;
   }
   to {
       opacity: 1;
