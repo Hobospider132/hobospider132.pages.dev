@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let center = document.getElementById('center');
     let timeDiv = document.getElementById('time');
     let timeFill = document.getElementById('time-filler');	
-    let osuLink = document.getElementById('osu');
     if (device()) { 
         /* If it's on mobile */
         contact.style.width = 'clamp(380px, 8vw, 105px)';

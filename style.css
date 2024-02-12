@@ -6,7 +6,6 @@
 .fancy {
   letter-spacing: 3px;
   text-decoration: none;
-  padding-right: 6px;
   font-family: "Arial";
   position: relative;
   text-transform: uppercase;
@@ -253,7 +252,6 @@ section h3 {
   margin: auto;
   text-align: center;
   font-family: arial;
-  display: inline-block;
   box-sizing: border-box;
   border-radius: 4px;
   width: 50%;
@@ -277,7 +275,6 @@ section h3 {
   padding-bottom: 5px;
   text-decoration: none;
   font-family: "Arial";
-  position: relative;
   text-transform: uppercase;
   color: transparent;
   font-size: 50px;
