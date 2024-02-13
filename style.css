@@ -90,7 +90,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: darkblue;
+  color: darkslateblue;
 }
 
 #main h2 {
@@ -175,6 +175,7 @@ a:active {
 section {
   display: flex;
   background-repeat: no-repeat;
+  align-items: center;
   background-attachment: fixed;
   background-position: center center;
   padding-top: 50px;
@@ -224,6 +225,18 @@ section h3 {
   text-transform: uppercase;
   color: transparent;
   -webkit-text-stroke: 1px aquamarine;
+  -webkit-mask: linear-gradient(to right, aquamarine 45%, transparent 55%) 0 0/220% 100% no-repeat;
+  animation: 2s ease-in-out 1.9s both name;
+}
+
+@keyframes name {
+  0% {
+      -webkit-mask-position: 100% 0;
+  }
+
+  100% {
+      -webkit-mask-position: 0% 0;
+  }
 }
 
 .hover-text {
@@ -241,7 +254,7 @@ section h3 {
 
 .anime:hover .hover-text {
   width: 100%;
-  filter: drop-shadow(0 0 23px var(--animation-color))
+  filter: drop-shadow(0 3px 7px var(--animation-color))
 }
 
 .card {
@@ -329,7 +342,7 @@ section h3 {
 
 .fade {
   animation-name: fade;
-  animation-duration: 4s;
+  animation-duration: 2s;
 }
 
 @keyframes fade {
@@ -348,4 +361,12 @@ section h3 {
   to {
       opacity: 1;
   }
+}
+
+.source {
+  color: aquamarine;
+}
+
+.source:hover {
+  color: white;
 }

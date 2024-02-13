@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (hrNow > 12) {
             hrNow = hrNow - 12;
+            hrNow = "0" + hrNow;
         }
         
         if (hrNow == 0) {
