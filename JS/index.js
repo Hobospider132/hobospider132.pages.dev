@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let contact = document.getElementById('contact-wrapper');
     let main = document.getElementById('main');
-    let line = document.getElementById('line');
     let center = document.getElementById('center');
     let timeDiv = document.getElementById('time');
     let timeFill = document.getElementById('time-filler');	
@@ -46,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
         contact.style.width = 'clamp(380px, 8vw, 105px)';
         contact.style.marginLeft = '20px';
         main.style.marginLeft = '30px';
-        line.style.display = 'none';
         center.style.alignContent = 'center';
         timeDiv.style.marginLeft = '60px';
         timeFill.style.marginLeft = '60px';
