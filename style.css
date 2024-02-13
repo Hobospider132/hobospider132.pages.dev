@@ -1,6 +1,6 @@
  /* * {
-  border: 1px solid red;
-}   */
+  border: 1px solid red; 
+}  */
 
 .fancy {
   letter-spacing: 3px;
@@ -21,10 +21,10 @@ body {
   font-family: sans-serif;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: transparent;
 }
 
 .size {
+  padding-top: 25px;
   width: 150px;
   height: 150px;
 }
@@ -53,7 +53,6 @@ body {
   height: 15vh;
   position: relative;
   width: 100%;
-  /* bottom: 50px; */
 }
 
 :root {
@@ -97,12 +96,14 @@ body {
   display: inline-block;
 }
 
-/* Unlike the mcrib, I'm bringing back .contact (wait, will I get sued for using mcrib name? will call it m'crib from now on */
-
-/* Was a reference to git commit 54082fd (Update style.css) (I know, not a very meaningful commit message) */
-
 .contact {
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  opacity: 0.65;
+  border-radius: 16px;
+  width: 200px;
+  height: 200px; 
 }
 
 .contact p {
@@ -369,4 +370,14 @@ section h3 {
 
 .source:hover {
   color: white;
+}
+
+.visitor {
+  display: inline-block; 
+  opacity: 0.65; 
+  background-color: black;
+}
+
+.visitor:active {
+  transform: perspective(300px) translateZ(-25px);
 }
