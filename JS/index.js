@@ -16,7 +16,7 @@ function load() {
         let osuContainer = document.getElementById('osuContainer');
         let osuLink = document.getElementById('osu');
 
-        if (window.scrollY + window.innerHeight > osuContainer.offsetTop + 50) {
+        if (window.scrollY + window.innerHeight > osuContainer.offsetTop + 100) {
             osuLink.src = imageUrl;
             window.removeEventListener('scroll', arguments.callee);
         }
