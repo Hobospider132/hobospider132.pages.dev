@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let [hrNow, minNow, secNow] = timeStr.split(':');
 
         const isDaylightSavingTime = isDST();
-        DSTZone = isDaylightSavingTime ? "AEDT" : "AEST";
-        UTCDiff = isDaylightSavingTime ? 11 : 10;
+        DSTZone = isDST ? "AEDT" : "AEST";
+        UTCDiff = isDST ? 11 : 10;
 
         month.innerHTML = monthNow;
         day.innerHTML = dayNow;
