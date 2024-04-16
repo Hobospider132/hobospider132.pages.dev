@@ -19,21 +19,22 @@ document.addEventListener('DOMContentLoaded', function () {
     function isDST() {
         const AusOptions = { timeZone: 'Australia/Sydney', hour12: true };
         const AusToday = new Date().toLocaleString('en-GB', AusOptions);
-
+    
         const [, AusTime]  = AusToday.split(', ');
-
+    
         let [AusHr] = AusTime.split(':');
-
+    
         const UTCOptions = { timeZone: 'UTC', hour12: true};
         const UTCToday = new Date().toLocaleString('en-GB', UTCOptions)
-
+    
         const [, UTCTime] = UTCToday.split(', ');
-
+    
         let [UTCHr] = UTCTime.split(":");
-
+    
         let num_AusHr = Number(AusHr);
         let num_UTCHr = Number(UTCHr);
-        return num_AusHr - num_UTCHr === -1 || 11;
+    
+        return num_AusHr - num_UTCHr === 1;
     }
 
     function dateNow() {
