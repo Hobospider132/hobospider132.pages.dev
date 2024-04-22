@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let num_AusHr = Number(AusHr);
         let num_UTCHr = Number(UTCHr);
     
-        return num_AusHr - num_UTCHr === 1;
+        return num_AusHr - num_UTCHr === 11;
     }
 
     function dateNow() {
