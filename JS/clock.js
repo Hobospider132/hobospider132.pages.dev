@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function isDST() {
-        const AusOptions = { timeZone: 'Australia/Sydney', hour12: true };
+        const AusOptions = { timeZone: 'Australia/Sydney', hour24: true };
         const AusToday = new Date().toLocaleString('en-GB', AusOptions);
     
         const [, AusTime]  = AusToday.split(', ');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let [AusHr] = AusTime.split(':');
     
         const UTCOptions = { timeZone: 'UTC', hour12: true};
-        const UTCToday = new Date().toLocaleString('en-GB', UTCOptions)
+        const UTCToday = new Date().toLocaleString('en-GB', UTCOptions);
     
         const [, UTCTime] = UTCToday.split(', ');
     
@@ -33,7 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
     
         let num_AusHr = Number(AusHr);
         let num_UTCHr = Number(UTCHr);
-    
+
+        
+        console.log("Australia time: ", num_AusHr);
+        console.log("UTC time: ", num_UTCHr);
+        console.log(num_AusHr - num_UTCHr);
         return num_AusHr - num_UTCHr === 11;
     }
 
