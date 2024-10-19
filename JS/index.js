@@ -5,24 +5,6 @@ function device() {
     return regex.test(navigator.userAgent);
 }
 
-if (device()) {
-    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
-} else {
-    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
-}
-
-function load() {
-    window.addEventListener('scroll', function () {
-        let osuContainer = document.getElementById('osuContainer');
-        let osuLink = document.getElementById('osu');
-
-        if (window.scrollY + window.innerHeight > osuContainer.offsetTop + 100) {
-            osuLink.src = imageUrl;
-            window.removeEventListener('scroll', arguments.callee);
-        }
-    });
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener("load", event => {
         const textElement = document.getElementById('visitorCount');
@@ -48,11 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
         center.style.alignContent = 'center';
         timeDiv.style.marginLeft = '60px';
         timeFill.style.marginLeft = '60px';
-        load();
     } else {
         /* If it's on desktop */
         timeDiv.style.marginLeft = '340px';
         timeFill.style.marginLeft = '340px';
-        load();
     }   
 });
