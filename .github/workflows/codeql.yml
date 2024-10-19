@@ -60,6 +60,25 @@ jobs:
         # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         # queries: security-extended,security-and-quality
 
+    - name: Auto Minify
+      uses: nizarmah/auto-minify@v3.0.0
+            on: [push]
+            
+            jobs:
+              minify:
+                runs-on: ubuntu-latest
+                steps:
+                  - name: check out the repository
+                    uses: actions/checkout@v4
+            
+                  - name: auto minify the files
+                    uses: nizarmah/auto-minify@v3
+            
+                  - name: auto commit the minified files
+                    uses: stefanzweifel/git-auto-commit-action@v5
+                    with:
+                      commit_message: "bot: Add auto minified files"
+
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)
