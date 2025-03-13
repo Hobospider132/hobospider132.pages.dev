@@ -36,3 +36,56 @@ document.addEventListener('DOMContentLoaded', function () {
         timeFill.style.marginLeft = '340px';
     }   
 });
+
+// From here it's gonna be code for anilist, busy irl but got this set up for now. Will do the rest at a later date
+//    const payload =  query stats {
+//       Page(page: 1, perPage: 5) {
+//         activities(userId: 6252093, sort: ID_DESC) {
+//           ... on ListActivity {
+//             id
+//             type
+//             status
+//             siteUrl
+//             createdAt
+//             user {
+//               updatedAt
+//             }
+//             media {
+//               bannerImage
+//               meanScore
+//               siteUrl
+//             }
+//           }
+//         }
+//       }
+//       User(id: 6252093) {
+//         bannerImage
+//         avatar {
+//           medium
+//         }
+//         about
+//         favourites {
+//           manga(page: 1, perPage: 3) {
+//             nodes {
+//               title {
+//                 romaji
+//               }
+//               bannerImage
+//               meanScore
+//               siteUrl
+//             }
+//           }
+//           anime(page: 1, perPage: 3) {
+//             nodes {
+//               title {
+//                 romaji
+//               }
+//               bannerImage
+//               meanScore
+//               siteUrl
+//             }
+//           }
+//         }
+//       }
+//     }
+// }
