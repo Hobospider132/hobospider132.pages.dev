@@ -32,12 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
         let [UTCHr] = UTCTime.split(":");
     
         let num_AusHr = Number(AusHr);
-        let num_UTCHr = Number(UTCHr);
-
-        
-        console.log("Australia time: ", num_AusHr);
-        console.log("UTC time: ", num_UTCHr);
-        console.log(num_AusHr - num_UTCHr);
+        let num_UTCHr = Number(UTCHr);        
+        // console.log("Australia time: ", num_AusHr);
+        // console.log("UTC time: ", num_UTCHr);
+        // console.log(num_AusHr - num_UTCHr);
         return num_AusHr - num_UTCHr === 11;
     }
 
@@ -72,12 +70,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hrNow > 12) {
             hrNow = hrNow - 12;
             hrNow = "0" + hrNow;
-        }
-        
-        if (hrNow == 0) {
+        } else if (hrNow == 0) {
             hrNow = 12;
         }
-
+        
         hour.innerHTML = String(hrNow);
         sec.innerHTML = String(secNow).padStart(2, '0');
         min.innerHTML = String(minNow).padStart(2, '0');
@@ -98,56 +94,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else{
            diff = `UTC +${UTCDiff}`;
         }
-
         timeDiff.innerHTML = diff;
-
     }
 
     setInterval(dateNow, 1000);
     show();
-});
-
-
-// Not sure why index.js is not loading properly after switching to custom domain. Clock.js runs fine so the two will be merged until a fix is found
-/* Edit the page if it's on mobile so it works and everything fits (intended for iphone xr)*/
-
-function device() {
-    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    return regex.test(navigator.userAgent);
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    window.addEventListener("load", event => {
-        const textElement = document.getElementById('visitorCount');
-        textElement.style.display = 'none';
-    });  
-
-    lozad('.lozad', {
-        load: function(el) {
-            el.src = el.dataset.src;
-        }
-    }).observe()
-
-    let contact = document.getElementById('contact-wrapper');
-    let main = document.getElementById('main');
-    let center = document.getElementById('center');
-    let timeDiv = document.getElementById('time');
-    let timeFill = document.getElementById('time-filler');	
-    let osuLink = document.getElementById('osu');
-    if (device()) { 
-        /* If it's on mobile */
-        contact.style.width = 'clamp(380px, 8vw, 105px)';
-        contact.style.marginLeft = '20px';
-        main.style.marginLeft = '30px';
-        center.style.alignContent = 'center';
-        timeDiv.style.marginLeft = '60px';
-        timeFill.style.marginLeft = '60px';
-        osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true"; 
-    } else {
-        /* If it's on desktop */
-        timeDiv.style.marginLeft = '340px';
-        timeFill.style.marginLeft = '340px';
-        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
-        
-    }   
 });
