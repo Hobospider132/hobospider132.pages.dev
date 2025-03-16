@@ -11,12 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
         textElement.style.display = 'none';
     });  
 
-    lozad('.lozad', {
-        load: function(el) {
-            el.src = el.dataset.src;
-        }
-    }).observe()
-
     let contact = document.getElementById('contact-wrapper');
     let main = document.getElementById('main');
     let center = document.getElementById('center');
@@ -36,8 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         /* If it's on desktop */
         timeDiv.style.marginLeft = '340px';
         timeFill.style.marginLeft = '340px';
-        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
-        
+        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';        
     }   
 });
 
