@@ -37,6 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }   
 });
 
+if (device()) {
+    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true';
+    preloadImage(imageUrl, 'low');
+} else {
+    var imageUrl = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';
+    preloadImage(imageUrl, 'low');
+}
+
 // From here it's gonna be code for anilist, busy irl but got this set up for now. Will do the rest at a later date
 //    const payload =  query stats {
 //       Page(page: 1, perPage: 5) {
