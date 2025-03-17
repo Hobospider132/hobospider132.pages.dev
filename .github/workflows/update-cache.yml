@@ -34,10 +34,3 @@ jobs:
         run: node JS/osu.mjs
         env:
           OSU_API_KEY: ${{ secrets.OSU_API }}
-
-      - name: Save cache
-        if: steps.cache.outputs.cache-hit != 'true'
-        uses: actions/cache@v3.4.3
-        with:
-          path: JS/osu.mjs
-          key: ${{ runner.os }}-cache-${{ hashFiles('JS/osu.mjs') }}
