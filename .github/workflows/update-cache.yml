@@ -19,20 +19,37 @@ jobs:
       - name: Install Dependencies (prod)
         run: npm install osu-api-v1-js
 
+      - name: Restore cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: JS/cache.json
+          key: ${{ runner.os }}-osu-cache
+          restore-keys: |
+            ${{ runner.os }}-osu-cache
+
       - name: Set up environment variable
         run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
 
       - name: Run TopPlays function to update cache
-        run: node JS/osu.mjs
+        run: JS/osu.mjs
         env:
           OSU_API_KEY: ${{ secrets.OSU_API }}
 
+      - name: Save cache
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache@v2
+        with:
+          path: JS/cache.json
+          key: ${{ runner.os }}-osu-cache
+
       - name: Commit and push changes
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m "Updated cache at $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m 'Updated cache.json'
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
