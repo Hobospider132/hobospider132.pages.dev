@@ -43,4 +43,4 @@ async function displayTopPlays() {
   });
 }
 
-// export { displayTopPlays };
+displayTopPlays();
