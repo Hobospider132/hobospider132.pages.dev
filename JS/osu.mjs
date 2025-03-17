@@ -2,7 +2,7 @@ import * as osu from "osu-api-v1-js";
 import { promises as fs } from "fs";
 
 const api = new osu.API(process.env.OSU_API_KEY);
-const cacheFilePath = "JS/cache.json";
+const cacheFilePath = "cache.json";
 
 async function readCache() {
   try {
@@ -61,7 +61,7 @@ async function displayTopPlays() {
     return;
   }
 
-  container.innerHTML = ""; // Clear existing content
+  container.innerHTML = "";
 
   cachedData.forEach((score) => {
     let link = document.createElement("a");
