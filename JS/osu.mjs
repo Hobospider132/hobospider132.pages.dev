@@ -1,8 +1,8 @@
 import * as osu from "osu-api-v1-js";
+import cacheData from "./cache.json";
 
 const api = new osu.API(process.env.OSU_API_KEY);
-let cache = { data: null, timestamp: 0 };
-const CACHE_TTL = 60 * 60 * 1000; 
+const CACHE_TTL = 60 * 60 * 1000;
 
 export function displayTopPlays(data) {
   const container = document.getElementById("osuScores");
@@ -39,9 +39,10 @@ export function displayTopPlays(data) {
 
 export async function TopPlays() {
   try {
-    if (cache.data && Date.now() - cache.timestamp < CACHE_TTL) {
+    if (cacheData.data && Date.now() - cacheData.timestamp < CACHE_TTL) {
       console.log("Using cached data...");
-      return cache.data;
+      displayTopPlays(cacheData.data);
+      return cacheData.data;
     }
 
     let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
@@ -62,9 +63,14 @@ export async function TopPlays() {
       };
     }));
 
-    cache = { data: results, timestamp: Date.now() };
+    cacheData.data = results;
+    cacheData.timestamp = Date.now();
+
+    const fs = require('fs');
+    fs.writeFileSync('./JS/cache.json', JSON.stringify(cacheData, null, 2), 'utf-8');
 
     console.log("Top plays fetched:", results);
+    displayTopPlays(results);
     return results; 
   } catch (error) {
     console.error("Error fetching top plays:", error);
