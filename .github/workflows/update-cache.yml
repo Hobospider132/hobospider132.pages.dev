@@ -28,9 +28,6 @@ jobs:
       - name: Set up environment variable
         run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
 
-      - name: Make osu.mjs executable
-        run: chmod +x JS/osu.mjs
-
       - name: Update cache
         run: JS/osu.mjs
         env:
