@@ -1,4 +1,4 @@
-name: Update Cache
+name: Fetch scores
 
 on:
   schedule:
@@ -13,16 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
+      - name: Install Dependencies (prod)
+        run: npm install osu-api-v1-js
 
-      - name: Install dependencies
-        run: npm install
+      - name: Set up environment variable
+        run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
 
       - name: Run TopPlays function to update cache
-        run: node -e "require('./JS/osu.mjs').TopPlays()"
+        run: node -e "import('./JS/osu.mjs').then(module => module.TopPlays())"
+        env:
+          OSU_API_KEY: ${{ secrets.OSU_API }}
 
       - name: Commit and push changes
         run: |
