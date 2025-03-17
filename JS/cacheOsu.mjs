@@ -24,7 +24,8 @@ async function fetchTopPlays() {
     const results = await Promise.all(scores.map(async (score) => {
       let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
       let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id }).replace("osu://", "https://osu.ppy.sh/");
-      let cover = osu.getURL.beatmapCoverImage(beatmap.beatmapset_id);
+      let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: beatmap.beatmapset_id });
+      console.log(beatmap.beatmapset_id);
       let mapLength = osu.getLength(beatmap.total_length);
       let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
       let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${(beatmap.difficultyrating).toFixed(1)}*)`;
