@@ -1,22 +1,12 @@
-// try {
+// Gonna be real here, I'm too lazy to figure out this API business and how to get it to not import the api stuff when it's on website and not workflow so I'm just gonna split the 
+// reading and writing functions into two differently js files, one reading and one writing, I think that's easiest/laziest way to do it, I might try to find a more elegant 
+// way of doing this once my exams are over depending on if I feel like it or not
+
 import * as osu from "osu-api-v1-js";
 const api = new osu.API(process.env.OSU_API_KEY);
-// } catch {
-//   console.warn("Are you displaying to the user or attempting to update? Please check for errors");
-// }
 
 import { promises as fs } from "fs";
 const cacheFilePath = "cache.json";
-
-async function readCache() {
-  try {
-    const data = await fs.readFile(cacheFilePath, "utf-8");
-    return JSON.parse(data);
-  } catch (error) {
-    console.warn("No cache found for display.");
-    return null;
-  }
-}
 
 async function writeCache(data) {
   try {
@@ -53,46 +43,6 @@ async function fetchTopPlays() {
   } catch (error) {
     console.error("Error fetching top plays:", error);
   }
-}
-
-async function displayTopPlays() {
-  const cachedData = await readCache();
-  if (!cachedData) {
-    console.error("No cached data available for display.");
-    return;
-  }
-
-  const container = document.getElementById("osuScores");
-  if (!container) {
-    console.error("Error: Element with ID 'osuScores' not found.");
-    return;
-  }
-
-  container.innerHTML = "";
-
-  cachedData.forEach((score) => {
-    let link = document.createElement("a");
-    link.href = score.url;
-    link.target = "_blank";
-
-    let section = document.createElement("section");
-
-    let box = document.createElement("div");
-    box.className = "box";
-    box.style.backgroundColor = "aquamarine";
-
-    let title = document.createElement("h3");
-    title.innerHTML = `<strong>${score.beatmap}</strong>`;
-
-    let mods = document.createElement("p");
-    mods.innerText = score.mods;
-
-    box.appendChild(title);
-    box.appendChild(mods);
-    section.appendChild(box);
-    link.appendChild(section);
-    container.appendChild(link);
-  });
 }
 
 fetchTopPlays();
