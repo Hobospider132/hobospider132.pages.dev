@@ -14,9 +14,7 @@ function displayTopPlays(data) {
 
     let box = document.createElement("div");
     box.className = "box";
-    box.style.backgroundImage = `url(${score.coverImage})`;
-    box.style.backgroundSize = "cover";
-    box.style.backgroundPosition = "center";
+    box.style.backgroundColor = "aquamarine";
 
     let title = document.createElement("h3");
     title.innerHTML = `<strong>${score.beatmap}</strong>`;
@@ -40,17 +38,14 @@ async function TopPlays() {
 
     const results = await Promise.all(scores.map(async (score) => {
       let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
-      let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: score.beatmapset_id });
       let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id });
       let mapLength = osu.getLength(beatmap.total_length);
       let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
       let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${beatmap.difficultyrating}*)`;
-      console.log(beatmapset_id);
       return {
         beatmap: x,
         mods: y,
         length: mapLength,
-        coverImage: cover,
         url: beatmap_url
       };
     }));
