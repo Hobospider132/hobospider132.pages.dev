@@ -1,21 +1,29 @@
-const cacheKey = "cacheData";
-
-function readCache() {
+async function readCache() {
   try {
-    const data = localStorage.getItem(cacheKey);
-    return data ? JSON.parse(data) : null;
+    const response = await fetch("https://raw.githubusercontent.com/Hobospider132/hobospider132.me/main/cache.json", {
+      headers: {
+        "Cache-Control": "no-cache" 
+      }
+    });
+
+    if (!response.ok) throw new Error(`Failed to load cache: ${response.statusText}`);
+
+    return await response.json();
   } catch (error) {
-    console.warn("No cache found for display.");
+    console.warn("No cache found for display.", error);
     return null;
   }
 }
 
 async function displayTopPlays() {
-  const cachedData = readCache();
-  if (!cachedData) return; 
+  const cachedData = await readCache(); 
 
+  if (!cachedData) return; 
   const container = document.getElementById("osuScores");
-  if (!container) return console.error("Error: Element with ID 'osuScores' not found.");
+  if (!container) {
+    console.error("Error: Element with ID 'osuScores' not found.");
+    return;
+  }
 
   container.innerHTML = "";
 
