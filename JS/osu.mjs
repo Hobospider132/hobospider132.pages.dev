@@ -1,7 +1,4 @@
-import * as osu from "osu-api-v1-js";
 import { promises as fs } from "fs";
-
-const api = new osu.API(process.env.OSU_API_KEY);
 const cacheFilePath = "cache.json";
 
 async function readCache() {
@@ -25,6 +22,8 @@ async function writeCache(data) {
 
 async function fetchTopPlays() {
   try {
+    import * as osu from "osu-api-v1-js";
+    const api = new osu.API(process.env.OSU_API_KEY);
     let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
 
     const results = await Promise.all(scores.map(async (score) => {
