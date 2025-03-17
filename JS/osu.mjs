@@ -68,3 +68,5 @@ export async function TopPlays() {
     console.error("Error fetching top plays:", error);
   }
 }
+
+TopPlays();
