@@ -1,6 +1,6 @@
 async function readCache() {
   try {
-    const response = await fetch("cache.json");
+    const response = await fetch("Osucache.json");
     if (!response.ok) throw new Error("Failed to load cache.");
     
     return await response.json();
