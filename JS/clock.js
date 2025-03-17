@@ -70,7 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hrNow > 12) {
             hrNow = hrNow - 12;
             hrNow = "0" + hrNow;
-        } else if (hrNow == 0) {
+        } 
+
+        if (hrNow == 0) {
             hrNow = 12;
         }
         
