@@ -57,7 +57,6 @@ async function TopPlays() {
 
     topPlaysData = results;
     console.log("Top plays fetched:", topPlaysData);
-    displayTopPlays(topPlaysData);
   } catch (error) {
     console.error("Error fetching top plays:", error);
   }
