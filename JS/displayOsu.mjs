@@ -43,3 +43,5 @@ async function displayTopPlays() {
     container.appendChild(link);
   });
 }
+
+export { displayTopPlays };
