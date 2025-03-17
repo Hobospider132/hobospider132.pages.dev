@@ -67,8 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         day.innerHTML = dayNow;
         year.innerHTML = `${yearNow} |  ${DSTZone}`;
 
-        if (hrNow > 12) {
-            hrNow = hrNow - 12;
+        if (0 < hrNow < 10) {
             hrNow = "0" + hrNow;
         } 
 
