@@ -1,7 +1,7 @@
 // Code to get the top osu plays for Hobospider132
 
 const osu = require("osu-api-v1-js");
-const api = new osu.API(OSU_API);
+const api = new osu.API(process.env.OSU_API);
 
 function displayTopPlays(data) {
   const container = document.getElementById("osuScores");
