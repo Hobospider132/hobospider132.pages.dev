@@ -28,7 +28,7 @@ async function fetchTopPlays() {
       let mapLength = osu.getLength(beatmap.total_length);
       let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
       let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} "Difficulty: " ${(beatmap.difficultyrating).toFixed(1)}*`;
-      let scorepp = score.pp
+      let scorepp = (score.pp).toFixed(0);
       return {
         beatmap: x,
         mods: y,
