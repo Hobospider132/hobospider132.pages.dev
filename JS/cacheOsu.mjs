@@ -25,9 +25,9 @@ async function fetchTopPlays() {
       let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
       let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id }).replace("osu://", "https://osu.ppy.sh/");
       let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: beatmap.beatmapset_id });
-      console.log(beatmap.beatmapset_id);
       let mapLength = osu.getLength(beatmap.total_length);
       let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
+      let PP = score.pp.toFixed(0);
       let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${(beatmap.difficultyrating).toFixed(1)}*)`;
 
       return {
@@ -35,7 +35,8 @@ async function fetchTopPlays() {
         mods: y,
         length: mapLength,
         url: beatmap_url,
-        coverImage: cover
+        coverImage: cover,
+        pp: PP
       };
     }));
     // console.log is more for the github workflow logs on my end so I can check that it's working before I see cache.json
