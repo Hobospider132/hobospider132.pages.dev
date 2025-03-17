@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
     
         let num_AusHr = Number(AusHr);
         let num_UTCHr = Number(UTCHr);        
-        // console.log("Australia time: ", num_AusHr);
-        // console.log("UTC time: ", num_UTCHr);
-        // console.log(num_AusHr - num_UTCHr);
+        console.log("Australia time: ", num_AusHr);
+        console.log("UTC time: ", num_UTCHr);
+        console.log(num_AusHr - num_UTCHr);
         return num_AusHr - num_UTCHr === 11;
     }
 
