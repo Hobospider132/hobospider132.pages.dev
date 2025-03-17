@@ -39,7 +39,7 @@ let topPlaysData = [];
 async function TopPlays() {
   try {
     let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
-
+    console.log(beatmapset_id);
     const results = await Promise.all(scores.map(async (score) => {
       let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
       let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: score.beatmapset_id });
