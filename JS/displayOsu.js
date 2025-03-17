@@ -33,7 +33,7 @@ async function displayTopPlays() {
     let box = document.createElement("div");
     box.className = "box";
     box.style.backgroundImage = `url(${score.coverImage})`;
-    box.style.backgroundSize = "fit";
+    box.style.backgroundSize = "cover";
     box.style.backgroundRepeat = "no-repeat";
     
     const title = document.createElement("h3");
