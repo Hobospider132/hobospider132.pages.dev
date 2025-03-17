@@ -27,7 +27,7 @@ async function fetchTopPlays() {
       let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: beatmap.beatmapset_id });
       let mapLength = osu.getLength(beatmap.total_length);
       let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
-      let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} ${(beatmap.difficultyrating).toFixed(1).join(", ")}* "PP: " ${score.pp.toFixed(0)}`;
+      let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} ${(beatmap.difficultyrating).toFixed(1).join(", ")}* "PP: " ${(score.pp).toFixed(0)}`;
 
       return {
         beatmap: x,
