@@ -1,4 +1,4 @@
-const osu = require("osu-api-v1-js");
+import * as osu from "osu-api-v1-js"
 const api = new osu.API(process.env.OSU_API_KEY);
 
 function displayTopPlays(data) {
