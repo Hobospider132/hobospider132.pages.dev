@@ -39,5 +39,5 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         uses: actions/cache@v3.4.3
         with:
-          path: JS/cache.json
-          key: ${{ runner.os }}-cache-${{ hashFiles('JS/cache.json') }}
+          path: JS/osu.mjs
+          key: ${{ runner.os }}-cache-${{ hashFiles('JS/osu.mjs') }}
