@@ -11,15 +11,12 @@
   <script src="JS/clock.js"></script>
   <script type="module">
       import { TopPlays, displayTopPlays } from "JS/osu.mjs";
-
-      async function loadTopPlays() {
-          const plays = await TopPlays();
-          if (plays) {
-              displayTopPlays(plays);
-          }
+        async function init() {
+          const topPlaysData = await fetchTopPlays();
+          displayTopPlays(topPlaysData);
+        }
       }
-
-      window.onload = loadTopPlays;
+      window.onload = init();
   </script>
   <link rel="preload" href="https://profile-counter.glitch.me/Hobospider132/count.svg" as="image"
     fetchpriority="high" />
