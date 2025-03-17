@@ -35,27 +35,32 @@ function displayTopPlays(data) {
 let topPlaysData = [];
 
 async function TopPlays() {
-  let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
+  try {
+    let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
 
-  for (const score of scores) {
-    let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
-    let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: score.beatmapset_id });
-    let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id });
-    let mapLength = osu.getLength(beatmap.total_length);
-    let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
-    let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${beatmap.difficultyrating}*)`;
+    const results = await Promise.all(scores.map(async (score) => {
+      let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
+      let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: score.beatmapset_id });
+      let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id });
+      let mapLength = osu.getLength(beatmap.total_length);
+      let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
+      let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${beatmap.difficultyrating}*)`;
 
-    let result = {
-      beatmap: x,
-      mods: y,
-      length: mapLength,
-      coverImage: cover,
-      url: beatmap_url
-    };
-    topPlaysData.push(result);
+      return {
+        beatmap: x,
+        mods: y,
+        length: mapLength,
+        coverImage: cover,
+        url: beatmap_url
+      };
+    }));
+
+    topPlaysData = results;
+    console.log("Top plays fetched:", topPlaysData);
+    displayTopPlays(topPlaysData);
+  } catch (error) {
+    console.error("Error fetching top plays:", error);
   }
-  console.log("Top plays fetched:", topPlaysData);
-  displayTopPlays(topPlaysData);
 }
 
 TopPlays();
