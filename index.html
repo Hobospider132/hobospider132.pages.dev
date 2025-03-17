@@ -10,10 +10,9 @@
   <script src="JS/index.js"></script>
   <script src="JS/clock.js"></script>
   <script type="module">
-      import { TopPlays, displayTopPlays } from "JS/osu.mjs";
+      import { displayTopPlays } from "JS/osu.mjs";
         async function init() {
-          const topPlaysData = await fetchTopPlays();
-          displayTopPlays(topPlaysData);
+          displayTopPlays();
         }
       }
       window.onload = init();
