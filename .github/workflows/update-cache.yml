@@ -9,7 +9,7 @@ on:
     - cron: '0 * * * *' # Runs every hour
 
 jobs:
-  update-cache:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
