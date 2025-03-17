@@ -141,7 +141,7 @@ body {
 
 .overlay {
   background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: black;
   padding: 10px;
   border-radius: 10px;
   width: 80%;
