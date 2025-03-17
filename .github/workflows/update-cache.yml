@@ -19,6 +19,14 @@ jobs:
       - name: Install Dependencies (prod)
         run: npm install osu-api-v1-js
 
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
       - name: Set up environment variable
         run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
 
@@ -29,7 +37,7 @@ jobs:
 
       - name: Save cache
         if: steps.cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache@v3.4.3
         with:
           path: JS/cache.json
-          key: ${{ steps.cache-osu-restore.outputs.cache-primary-key }}
+          key: ${{ runner.os }}-cache-${{ hashFiles('JS/cache.json') }}
