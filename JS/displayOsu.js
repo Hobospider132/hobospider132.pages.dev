@@ -1,13 +1,8 @@
 async function readCache() {
   try {
-    const response = await fetch("https://raw.githubusercontent.com/Hobospider132/hobospider132.me/main/cache.json", {
-      headers: {
-        "Cache-Control": "no-cache" 
-      }
-    });
-
-    if (!response.ok) throw new Error(`Failed to load cache: ${response.statusText}`);
-
+    const response = await fetch("cache.json");
+    if (!response.ok) throw new Error("Failed to load cache.");
+    
     return await response.json();
   } catch (error) {
     console.warn("No cache found for display.", error);
