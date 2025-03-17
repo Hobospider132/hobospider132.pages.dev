@@ -32,9 +32,7 @@ async function displayTopPlays() {
     const section = document.createElement("section");
     let box = document.createElement("div");
     box.className = "box";
-    box.style.backgroundImage = score.coverImage;
-    
-    console.log(score.coverImage);
+    box.style.backgroundImage = `url(${score.coverImage})`;
     
     box.style.backgroundSize = "fit";
     box.style.backgroundPosition = "center";
