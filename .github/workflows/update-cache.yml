@@ -20,7 +20,7 @@ jobs:
         run: npm install osu-api-v1-js
 
       - name: Cache Node.js modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3.4.3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
