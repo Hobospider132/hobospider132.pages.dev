@@ -122,7 +122,6 @@ body {
   width: 250px;
   height: 130px;
   color: #eee;
-  background-color: #0d578bc4;
   min-width: 130px;
   min-height: 50px;
   display: flex;
@@ -137,7 +136,7 @@ body {
   font-family: sans-serif;
   font-weight: bolder;
   font-style: italic;
-  box-shadow: 2px 2px 5px 10px aquamarine;
+/*   box-shadow: 2px 2px 5px 10px aquamarine; */
 }
 
 .overlay {
