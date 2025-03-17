@@ -31,6 +31,9 @@ jobs:
       - name: Set up environment variable
         run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
 
+      - name: Make osu.mjs executable
+        run: chmod +x JS/osu.mjs
+
       - name: Run TopPlays function to update cache
         run: JS/osu.mjs
         env:
@@ -42,14 +45,3 @@ jobs:
         with:
           path: JS/cache.json
           key: ${{ runner.os }}-osu-cache
-
-      - name: Commit and push changes
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m 'Updated cache.json'
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
