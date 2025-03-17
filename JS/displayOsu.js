@@ -12,7 +12,7 @@ async function readCache() {
 
 async function displayTopPlays() {
   const cachedData = await readCache(); 
-
+  
   if (!cachedData) return; 
   const container = document.getElementById("osuScores");
   if (!container) {
@@ -28,10 +28,13 @@ async function displayTopPlays() {
     const link = document.createElement("a");
     link.href = score.url;
     link.target = "_blank";
-
+    
     const section = document.createElement("section");
-    const box = document.createElement("div");
+    let box = document.createElement("div");
     box.className = "box";
+    box.style.backgroundImage = `url(${score.coverImage})`;
+    box.style.backgroundSize = "fit";
+    box.style.backgroundPosition = "center";
 
     const title = document.createElement("h3");
     title.textContent = score.beatmap;
