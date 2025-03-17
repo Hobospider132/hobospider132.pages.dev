@@ -13,38 +13,31 @@ async function readCache() {
 
 async function displayTopPlays() {
   const cachedData = await readCache();
-  if (!cachedData) {
-    console.error("No cached data available for display.");
-    return;
-  }
+  if (!cachedData) return; // No need for additional error logging.
 
   const container = document.getElementById("osuScores");
-  if (!container) {
-    console.error("Error: Element with ID 'osuScores' not found.");
-    return;
-  }
+  if (!container) return console.error("Error: Element with ID 'osuScores' not found.");
 
   container.innerHTML = "";
 
   cachedData.forEach((score) => {
-    let link = document.createElement("a");
+    if (!score.url) return; 
+
+    const link = document.createElement("a");
     link.href = score.url;
     link.target = "_blank";
 
-    let section = document.createElement("section");
-
-    let box = document.createElement("div");
+    const section = document.createElement("section");
+    const box = document.createElement("div");
     box.className = "box";
-    box.style.backgroundColor = "aquamarine";
 
-    let title = document.createElement("h3");
-    title.innerHTML = `<strong>${score.beatmap}</strong>`;
+    const title = document.createElement("h3");
+    title.textContent = score.beatmap; 
 
-    let mods = document.createElement("p");
-    mods.innerText = score.mods;
+    const mods = document.createElement("p");
+    mods.textContent = score.mods;
 
-    box.appendChild(title);
-    box.appendChild(mods);
+    box.append(title, mods);
     section.appendChild(box);
     link.appendChild(section);
     container.appendChild(link);
