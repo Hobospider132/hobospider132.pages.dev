@@ -1,5 +1,3 @@
-// Code to get the top osu plays for Hobospider132
-
 const osu = require("osu-api-v1-js");
 const api = new osu.API(process.env.OSU_API_KEY);
 
@@ -37,26 +35,27 @@ function displayTopPlays(data) {
 let topPlaysData = [];
 
 async function TopPlays() {
-    let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, {username: "hobospider132"});
+  let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
 
-    for (const score of scores) {
-      let beatmap = await api.getBeatmap({beatmap_id: scores[score].beatmap_id}, scores[score].enabled_mods);
-      let cover = osu.getURL.beatmapCoverImage({beatmapset_id: scores[score]});
-      let beatmap_url = osu.getURL.toOpen.beatmap({beatmap_id: scores[score]})
-      let mapLength = osu.getLength(beatmap.total_length);
-      let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
-      let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${beatmap.difficultyrating}*)`;
+  for (const score of scores) {
+    let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
+    let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: score.beatmapset_id });
+    let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id });
+    let mapLength = osu.getLength(beatmap.total_length);
+    let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
+    let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${beatmap.difficultyrating}*)`;
 
-      let result = {
-        beatmap: x,
-        mods: y,
-        length: maplength,
-        coverImage: cover,
-        url: beatmap_url
-      };
-      topPlaysData.push(result);
-    }
+    let result = {
+      beatmap: x,
+      mods: y,
+      length: mapLength,
+      coverImage: cover,
+      url: beatmap_url
+    };
+    topPlaysData.push(result);
+  }
   console.log("Top plays fetched:", topPlaysData);
   displayTopPlays(topPlaysData);
+}
 
 TopPlays();
