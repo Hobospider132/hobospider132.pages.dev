@@ -1,5 +1,5 @@
 import * as osu from "osu-api-v1-js";
-import cacheData from "./cache.json" assert { type: 'json' };;
+import cacheData from "./cache.json" assert { type: 'json' };
 
 const api = new osu.API(process.env.OSU_API_KEY);
 const CACHE_TTL = 60 * 60 * 1000;
