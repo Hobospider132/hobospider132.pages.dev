@@ -1,3 +1,5 @@
+import * as osu from "osu-api-v1-js";
+
 const api = new osu.API(process.env.OSU_API_KEY);
 let cache = { data: null, timestamp: 0 };
 const CACHE_TTL = 60 * 60 * 1000; 
