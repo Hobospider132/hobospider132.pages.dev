@@ -27,7 +27,7 @@ jobs:
         run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
 
       - name: Generate cache file
-        run: node JS/osu.mjs
+        run: node JS/cacheOsu.mjs
         env:
           OSU_API_KEY: ${{ secrets.OSU_API }}
 
