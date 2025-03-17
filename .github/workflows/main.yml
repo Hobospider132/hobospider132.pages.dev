@@ -32,6 +32,6 @@ jobs:
         run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
 
       - name: Run script with secret
-        run: node JS/osu.js 
+        run: node JS/osu.mjs 
         env:
           OSU_API_KEY: ${{ secrets.OSU_API }}
