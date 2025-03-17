@@ -1,11 +1,71 @@
-import * as osu from "osu-api-v1-js"
+import * as osu from "osu-api-v1-js";
+import { promises as fs } from "fs";
+
 const api = new osu.API(process.env.OSU_API_KEY);
+const cacheFilePath = "JS/cache.json";
+
+async function readCache() {
+  try {
+    const data = await fs.readFile(cacheFilePath, "utf-8");
+    return JSON.parse(data);
+  } catch (error) {
+    console.warn("No cache found, fetching new data...");
+    return null;
+  }
+}
+
+async function writeCache(data) {
+  try {
+    await fs.writeFile(cacheFilePath, JSON.stringify(data, null, 2), "utf-8");
+    console.log("Cache updated.");
+  } catch (error) {
+    console.error("Failed to write cache:", error);
+  }
+}
+
+async function fetchTopPlays() {
+  let cachedData = await readCache();
+  if (cachedData) {
+    console.log("Using cached data:", cachedData);
+    return cachedData;
+  }
+
+  try {
+    let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
+
+    const results = await Promise.all(scores.map(async (score) => {
+      let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
+      let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id });
+      let mapLength = osu.getLength(beatmap.total_length);
+      let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
+      let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${beatmap.difficultyrating}*)`;
+
+      return {
+        beatmap: x,
+        mods: y,
+        length: mapLength,
+        url: beatmap_url
+      };
+    }));
+
+    await writeCache(results);
+    return results;
+  } catch (error) {
+    console.error("Error fetching top plays:", error);
+    return [];
+  }
+}
 
 function displayTopPlays(data) {
   const container = document.getElementById("osuScores");
-  container.innerHTML = "";
+  if (!container) {
+    console.error("Error: Element with ID 'osuScores' not found.");
+    return;
+  }
 
-  data.forEach((score, index) => {
+  container.innerHTML = ""; 
+
+  data.forEach((score) => {
     let link = document.createElement("a");
     link.href = score.url;
     link.target = "_blank";
@@ -30,31 +90,4 @@ function displayTopPlays(data) {
   });
 }
 
-let topPlaysData = [];
-
-async function TopPlays() {
-  try {
-    let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
-
-    const results = await Promise.all(scores.map(async (score) => {
-      let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
-      let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id });
-      let mapLength = osu.getLength(beatmap.total_length);
-      let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
-      let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${beatmap.difficultyrating}*)`;
-      return {
-        beatmap: x,
-        mods: y,
-        length: mapLength,
-        url: beatmap_url
-      };
-    }));
-
-    topPlaysData = results;
-    console.log("Top plays fetched:", topPlaysData);
-  } catch (error) {
-    console.error("Error fetching top plays:", error);
-  }
-}
-
-TopPlays();
+  fetchTopPlays();
