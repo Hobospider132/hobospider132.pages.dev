@@ -34,11 +34,9 @@ function displayTopPlays(data) {
   });
 }
 
-
 let topPlaysData = [];
 
 async function TopPlays() {
-  try {
     let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, {username: "hobospider132"});
 
     for (const score of scores) {
@@ -58,12 +56,7 @@ async function TopPlays() {
       };
       topPlaysData.push(result);
     }
-  } 
   console.log("Top plays fetched:", topPlaysData);
   displayTopPlays(topPlaysData);
-} catch {
-    console.error('Error fetching user:', error);
-    process.exit(1);
-}
 
 TopPlays();
