@@ -1,4 +1,6 @@
-import * as osu from "osu-api-v1-js"
+import * as osu from "osu-api-v1-js";
+import fs from 'fs';
+
 const api = new osu.API(process.env.OSU_API_KEY);
 
 function displayTopPlays(data) {
@@ -41,7 +43,7 @@ async function TopPlays() {
     const results = await Promise.all(scores.map(async (score) => {
       let beatmap = await api.getBeatmap({ beatmap_id: score.beatmap_id }, score.enabled_mods);
       let cover = osu.getURL.beatmapCoverImage({ beatmapset_id: score.beatmapset_id });
-      let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id });
+      let beatmap_url = osu.getURL.toOpen.beatmap({ beatmap_id: score.beatmap_id }).replace('osu://', 'osu.ppy.sh/');
       let mapLength = osu.getLength(beatmap.total_length);
       let x = `${beatmap.artist} - ${beatmap.title} [${beatmap.version}]`;
       let y = `+${(score.enabled_mods || []).map((m) => osu.Mods[m] || "No Mod").join(", ")} (${beatmap.difficultyrating}*)`;
@@ -57,13 +59,26 @@ async function TopPlays() {
 
     topPlaysData = results;
     console.log("Top plays fetched:", topPlaysData);
+
+    // Write the data to a .txt file
+    fs.writeFileSync('topPlaysData.txt', JSON.stringify(topPlaysData, null, 2));
   } catch (error) {
     console.error("Error fetching top plays:", error);
   }
 }
 
+function loadTopPlaysFromFile() {
+  try {
+    const data = fs.readFileSync('topPlaysData.txt', 'utf8');
+    const topPlaysData = JSON.parse(data);
+    displayTopPlays(topPlaysData);
+  } catch (error) {
+    console.error("Error reading top plays from file:", error);
+  }
+}
+
+// Fetch top plays and write to file
 TopPlays();
 
-document.addEventListener('DOMContentLoaded', function () {
-  displayTopPlays(results);
-});  
+// Export the function to load top plays from file
+export { loadTopPlaysFromFile };
