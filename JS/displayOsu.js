@@ -40,7 +40,7 @@ async function displayTopPlays() {
     title.textContent = score.beatmap;
 
     const diff = document.createElement("p");
-    diff.textContent = "Difficulty: " + score.difficulty;
+    diff.textContent = "Difficulty: " + score.difficulty + "★";
 
     const length = document.createElement("p");
     length.textContent = "Length: " + score.length;
