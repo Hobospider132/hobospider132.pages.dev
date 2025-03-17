@@ -1,0 +1,28 @@
+name: "OsuAPI"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+  - cron: "0 2 * * 1-5"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+      
+      - name: Install Dependencies (prod)
+        run: npm install osu-api-v1-js
+
+      - name: Set up environment variable
+        run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
+
+      - name: Run script with secret
+        run: node JS/osu.js 
+        env:
+          OSU_API_KEY: ${{ secrets.OSU_API }}
