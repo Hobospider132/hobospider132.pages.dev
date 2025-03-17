@@ -131,7 +131,6 @@ body {
   justify-content: center;
   text-align: center;
   border-radius: 16px;
-  padding: 10px;
   overflow: hidden;
   font-family: sans-serif;
   font-weight: bolder;
@@ -156,7 +155,8 @@ body {
 }
 
 .box h3, .box p {
-  margin: 5px 0;
+ margin: 5px 0;
+ color: black
 }
 
 /* end osu scores stuff */
