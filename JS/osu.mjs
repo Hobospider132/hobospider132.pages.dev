@@ -5,7 +5,7 @@ function displayTopPlays(data) {
   const container = document.getElementById("osuScores");
   container.innerHTML = "";
 
-  data.forEach((score, index) => {
+  data.forEach((score) => {
     let link = document.createElement("a");
     link.href = score.url;
     link.target = "_blank";
@@ -57,10 +57,13 @@ async function TopPlays() {
 
     topPlaysData = results;
     console.log("Top plays fetched:", topPlaysData);
-    displayTopPlays(topPlaysData);
   } catch (error) {
     console.error("Error fetching top plays:", error);
   }
 }
 
 TopPlays();
+
+document.addEventListener('DOMContentLoaded', function () {
+  displayTopPlays(results);
+});  
