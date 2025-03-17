@@ -114,21 +114,39 @@ body {
   transform: perspective(300px) translateZ(-25px);
 }
 
+/* start osu scores css */
+
 .box {
-  background-color: #0d578bc4;
-  color: #eee;
   transition: transform 0.3s ease-in-out;
-  font-family: sans-serif;
-  font-weight: bolder;
-  font-style: italic;
-  padding: 10px;
-  border-radius: 16px;
-  box-shadow: 2px 2px 5px 10px aquamarine;
+  width: 250px;
+  height: 130px;
+  color: #eee;
+  background-color: #0d578bc4;
   min-width: 130px;
   min-height: 50px;
   display: flex;
   flex: wrap;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 16px;
+  padding: 10px;
+  overflow: hidden;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: italic;
+  box-shadow: 2px 2px 5px 10px aquamarine;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: 80%;
+  text-align: center;
+  position: absolute;
 }
 
 .box h {
@@ -146,6 +164,12 @@ body {
 .box:active {
   transform: perspective(300px) translateZ(-25px);
 }
+
+.box h3, .box p {
+  margin: 5px 0;
+}
+
+/* end osu scores stuff */
 
 footer {
   justify-content: center;
@@ -205,13 +229,15 @@ section h3 {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
+  gap: 15px;
+ 
 }
 
 .wrapper p {
   color: #eee;
 }
 
-/* Anime = UWU = Funny = DL Natty Nation */
+/* The previous message here is a source of shame for me. I apologise to all who have read the last comment here */
 
 .anime {
   --border-right: 6px;
@@ -371,6 +397,8 @@ section h3 {
   color: white;
   -webkit-text-stroke: 1px white;
 }
+
+/* from here it's the stuff for the visitor count */
 
 .visitor {
   display: inline-block; 
