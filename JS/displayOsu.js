@@ -33,7 +33,9 @@ async function displayTopPlays() {
     let box = document.createElement("div");
     box.className = "box";
     box.style.backgroundImage = score.coverImage;
+    
     console.log(score.coverImage);
+    
     box.style.backgroundSize = "fit";
     box.style.backgroundPosition = "center";
 
@@ -46,7 +48,10 @@ async function displayTopPlays() {
     const length = document.createElement("p");
     length.textContent = score.length;
 
-    box.append(title, mods);
+    const PP = document.createElement("p");
+    PP.textContent = score.pp;
+
+    box.append(title, mods, length, pp);
     section.appendChild(box);
     link.appendChild(section);
     container.appendChild(link);
