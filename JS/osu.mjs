@@ -4,7 +4,7 @@ import { promises as fs } from "fs";
  try {
    const api = new osu.API(process.env.OSU_API_KEY);
  } catch {
-   const api;
+   const api = "";
  }
 
 const cacheFilePath = "JS/cache.json";
