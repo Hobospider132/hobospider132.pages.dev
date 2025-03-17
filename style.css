@@ -119,8 +119,8 @@ body {
 
 .box {
   transition: transform 0.3s ease-in-out;
-  width: 250px;
-  height: 130px;
+  width: 900px;
+  height: 250px;
   color: black;
   min-width: 130px;
   min-height: 50px;
@@ -227,7 +227,7 @@ section h3 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   gap: 15px;
  
