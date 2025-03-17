@@ -23,7 +23,7 @@ jobs:
         run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
 
       - name: Run TopPlays function to update cache
-        run: node -e "import('./JS/osu.mjs').then(module => module.TopPlays())"
+        run: node JS/osu.mjs
         env:
           OSU_API_KEY: ${{ secrets.OSU_API }}
 
@@ -35,4 +35,4 @@ jobs:
           git commit -m 'Update cache.json'
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
