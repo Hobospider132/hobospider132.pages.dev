@@ -1,9 +1,12 @@
-name: Fetch scores
+name: Osu! API
 
 on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   schedule:
     - cron: '0 * * * *' # Runs every hour
-  workflow_dispatch:
 
 jobs:
   update-cache:
