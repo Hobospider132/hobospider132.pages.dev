@@ -41,8 +41,11 @@ async function fetchTopPlays() {
         url: beatmap_url
       };
     }));
-
+    // console.log is more for the github workflow logs on my end so I can check that it's working before I see cache.json
+    // user end won't really see the results of this unless they check cache.json themselves
+    console.log(results);
     await writeCache(results);
+    
   } catch (error) {
     console.error("Error fetching top plays:", error);
   }
