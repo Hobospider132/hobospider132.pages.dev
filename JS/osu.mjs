@@ -1,12 +1,9 @@
 import * as osu from "osu-api-v1-js";
 import { promises as fs } from "fs";
-  
- try {
-   const api = new osu.API(process.env.OSU_API_KEY);
- } catch {
-   const api = "";
- }
 
+try {
+  const api = new osu.API(process.env.OSU_API_KEY);
+}
 const cacheFilePath = "JS/cache.json";
 
 async function readCache() {
@@ -14,7 +11,7 @@ async function readCache() {
     const data = await fs.readFile(cacheFilePath, "utf-8");
     return JSON.parse(data);
   } catch (error) {
-    console.warn("No cache found, fetching new data...");
+    console.warn("No cache found for display.");
     return null;
   }
 }
@@ -29,12 +26,6 @@ async function writeCache(data) {
 }
 
 async function fetchTopPlays() {
-  let cachedData = await readCache();
-  if (cachedData) {
-    console.log("Using cached data:", cachedData);
-    return cachedData;
-  }
-
   try {
     let scores = await api.getUserBestScores(3, osu.Gamemodes.OSU, { username: "hobospider132" });
 
@@ -54,23 +45,27 @@ async function fetchTopPlays() {
     }));
 
     await writeCache(results);
-    return results;
   } catch (error) {
     console.error("Error fetching top plays:", error);
-    return [];
   }
 }
 
-function displayTopPlays(data) {
+async function displayTopPlays() {
+  const cachedData = await readCache();
+  if (!cachedData) {
+    console.error("No cached data available for display.");
+    return;
+  }
+
   const container = document.getElementById("osuScores");
   if (!container) {
     console.error("Error: Element with ID 'osuScores' not found.");
     return;
   }
 
-  container.innerHTML = ""; 
+  container.innerHTML = ""; // Clear existing content
 
-  data.forEach((score) => {
+  cachedData.forEach((score) => {
     let link = document.createElement("a");
     link.href = score.url;
     link.target = "_blank";
@@ -95,4 +90,4 @@ function displayTopPlays(data) {
   });
 }
 
-  fetchTopPlays();
+fetchTopPlays();
