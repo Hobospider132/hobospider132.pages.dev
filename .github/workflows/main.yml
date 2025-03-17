@@ -18,6 +18,15 @@ jobs:
       
       - name: Install Dependencies (prod)
         run: npm install osu-api-v1-js
+  deploy: 
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+      
+      - name: Install Dependencies (prod)
+        run: npm install osu-api-v1-js
 
       - name: Set up environment variable
         run: echo "OSU_API_KEY=${{ secrets.OSU_API }}" >> $GITHUB_ENV
