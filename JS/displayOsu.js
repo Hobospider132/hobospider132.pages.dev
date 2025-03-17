@@ -39,8 +39,8 @@ async function displayTopPlays() {
     const title = document.createElement("h3");
     title.textContent = score.beatmap;
 
-    const mods = document.createElement("p");
-    mods.textContent = score.mods;
+    const diff = document.createElement("p");
+    diff.textContent = score.difficulty;
 
     const length = document.createElement("p");
     length.textContent = "Length: " + score.length;
@@ -48,7 +48,7 @@ async function displayTopPlays() {
     const PP = document.createElement("p");
     length.textContent = "pp: " + score.pp
     
-    box.append(title, mods, length, PP);
+    box.append(title, diff, length, PP);
     section.appendChild(box);
     link.appendChild(section);
     container.appendChild(link);
