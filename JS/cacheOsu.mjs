@@ -6,7 +6,7 @@ import * as osu from "osu-api-v1-js";
 const api = new osu.API(process.env.OSU_API_KEY);
 
 import { promises as fs } from "fs";
-const cacheFilePath = "cache.json";
+const cacheFilePath = "Osucache.json";
 
 async function writeCache(data) {
   try {
