@@ -58,10 +58,12 @@ async function TopPlays() {
       };
       topPlaysData.push(result);
     }
-  }
-
+  } 
   console.log("Top plays fetched:", topPlaysData);
   displayTopPlays(topPlaysData);
+} catch {
+    console.error('Error fetching user:', error);
+    process.exit(1);
 }
 
 TopPlays();
