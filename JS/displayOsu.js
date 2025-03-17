@@ -34,7 +34,8 @@ async function displayTopPlays() {
     box.className = "box";
     box.style.backgroundImage = `url(${score.coverImage})`;
     box.style.backgroundSize = "fit";
-
+    box.style.backgroundRepeat = "no-repeat";
+    
     const title = document.createElement("h3");
     title.textContent = score.beatmap;
 
