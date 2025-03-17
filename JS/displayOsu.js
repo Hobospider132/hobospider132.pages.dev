@@ -48,10 +48,7 @@ async function displayTopPlays() {
     const length = document.createElement("p");
     length.textContent = score.length;
 
-    const PP = document.createElement("p");
-    PP.textContent = score.pp;
-
-    box.append(title, mods, length, pp);
+    box.append(title, mods, length);
     section.appendChild(box);
     link.appendChild(section);
     container.appendChild(link);
