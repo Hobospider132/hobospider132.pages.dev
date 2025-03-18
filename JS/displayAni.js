@@ -2,8 +2,8 @@ function displayAnilistData(data) {
   const activityDiv = document.getElementById('ani-activity');
   activityDiv.innerHTML = ''; 
   activityDiv.style.backgroundImage = `url(${data.User.bannerImage})`;
-  activityDiv.style.backgroundSize = "contain";
-
+  activityDiv.style.backgroundSize = "cover";
+  activityDiv.style.color = "aquamarine";
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
     activityCard.style = "margin: 5px; width: 50%; text-align: center; justify-self: center;";
