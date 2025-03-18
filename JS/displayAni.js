@@ -4,13 +4,15 @@ function displayAnilistData(data) {
   activityDiv.style.backgroundImage = `url(${data.User.bannerImage})`;
   activityDiv.style.backgroundSize = "cover";
   activityDiv.style.color = "aquamarine";
+
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
-    activityCard.style = "margin: 5px; width: 50%; text-align: center; justify-self: center; background-color: gray; opacity: 20%; border-radius: 16px;";
+    activityCard.classList.add("activity-card");
+
     activityCard.innerHTML = `
-      <img src="${activity.media.coverImage.medium}" alt="Cover Image" style="width: 75%; height: 75%;">
+      <img src="${activity.media.coverImage.medium}" alt="Cover Image">
       <h5>${activity.media.title.english || activity.media.title.romaji}</h5>
-      <p style="color: white">${ activity.status } ${ activity.progress }</p>
+      <p>${activity.status} ${activity.progress}</p>
     `;
 
     const link = document.createElement("a");
