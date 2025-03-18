@@ -53,7 +53,7 @@ function displayAnilistData(data) {
   accountDiv.style = "justify-self: center";
   accountDiv.innerHTML = `
     <img src="${user.avatar.medium}" alt="Avatar" class="profile-img-ani">
-    <h4>${user.name}</h3>
+    <h4 style="padding: 0px">${user.name}</h4>
     <p>${user.about || "No bio available"}</p>
   `;
 
@@ -63,7 +63,6 @@ function displayAnilistData(data) {
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
     activityCard.style = "border: 1px solid #ccc; padding: 10px; margin: 5px; width: 200px; text-align: center; justify-self: center";
-
     activityCard.innerHTML = `
       <img src="${activity.media.coverImage.medium}" alt="Cover Image" style="width: 100%;">
       <h5>${activity.media.title.english || activity.media.title.romaji}</h5>
