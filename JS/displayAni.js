@@ -19,14 +19,14 @@ const query = `
         }
       }
     }
-    // User(id: 6252093) {
-    //   name
-    //   bannerImage
-    //   avatar {
-    //     medium
-    //   }
-    //   about
-    // }
+    User(id: 6252093) {
+      name
+      bannerImage
+      avatar {
+        medium
+      }
+      about
+    }
   }
 `;
 
