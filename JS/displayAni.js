@@ -39,7 +39,7 @@ const destination = {
   body: JSON.stringify({ payload })
 };
 
-fetch('https://graphql.anilist.co', options)
+fetch('https://graphql.anilist.co', destination)
   .then(response => response.json())
   .then(data => {
     console.log('GraphQL response:', data);
