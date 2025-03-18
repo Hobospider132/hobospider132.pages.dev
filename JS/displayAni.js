@@ -6,11 +6,11 @@ function displayAnilistData(data) {
   activityDiv.style.color = "aquamarine";
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
-    activityCard.style = "margin: 5px; width: 50%; text-align: center; justify-self: center;";
+    activityCard.style = "margin: 5px; width: 50%; text-align: center; justify-self: center; background-color: gray; opacity: 20%; border-radius: 16px;";
     activityCard.innerHTML = `
-      <img src="${activity.media.coverImage.medium}" alt="Cover Image" style="width: 50%; height: 50%;">
+      <img src="${activity.media.coverImage.medium}" alt="Cover Image" style="width: 75%; height: 75%;">
       <h5>${activity.media.title.english || activity.media.title.romaji}</h5>
-      <p>${ activity.status } ${ activity.progress }</p>
+      <p style="color: white">${ activity.status } ${ activity.progress }</p>
     `;
 
     const link = document.createElement("a");
