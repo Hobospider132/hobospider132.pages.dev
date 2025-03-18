@@ -162,6 +162,43 @@ body {
 
 /* end osu scores stuff */
 
+/* start anilist css */
+#ani-activity {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 10px; 
+  padding: 10px; 
+  max-width: 90%; 
+  margin: auto; 
+}
+
+.activity-card {
+  flex: 1 1 calc(25% - 20px); 
+  max-width: 200px; 
+  text-align: center;
+  background-color: rgba(128, 128, 128, 0.5); 
+  border-radius: 16px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.activity-card img {
+  width: 75%; 
+  height: auto; 
+}
+
+.activity-card h5 {
+  margin: 5px 0;
+  color: white;
+}
+
+.activity-card p {
+  color: white;
+}
+
+/* end anilist css */
+
 footer {
   justify-content: center;
   align-items: center;
