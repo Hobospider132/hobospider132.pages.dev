@@ -24,7 +24,7 @@ const query = `
       name
       bannerImage
       avatar {
-        small
+        medium
       }
       about
     }
