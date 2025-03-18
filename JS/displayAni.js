@@ -53,7 +53,7 @@ function displayAnilistData(data) {
   accountDiv.style = "justify-self: center";
   accountDiv.style.backgroundImage = `url(${user.bannerImage})`;
   accountDiv.innerHTML = `
-    <img src="${user.avatar.small}" alt="Avatar" class="profile-img">
+    <img src="${user.avatar.small}" alt="Avatar" class="profile-img-ani">
     <h4>${user.name}</h3>
     <p>${user.about || "No bio available"}</p>
   `;
