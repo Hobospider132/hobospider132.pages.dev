@@ -136,7 +136,7 @@ body {
   font-weight: bolder;
   font-style: italic;
   box-shadow: 2px 2px 5px 10px aquamarine; 
-  margin-left: 20vw;
+  margin-left: 20px;
 }
 
 .box h {
@@ -196,10 +196,16 @@ section {
   padding-top: 50px;
 }
 
-#main .profile-img {
+.profile-img-main {
   border-radius: 50%;
   height: 210px;
   width: 200px;
+}
+
+.profile-img-ani {
+  border-radius: 50%;
+  height: 60px;
+  width: 50px;
 }
 
 #main h1 {
