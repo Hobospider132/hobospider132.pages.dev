@@ -24,7 +24,7 @@ const query = `
       name
       bannerImage
       avatar {
-        medium
+        small
       }
       about
     }
@@ -50,8 +50,9 @@ fetch('https://graphql.anilist.co', destination)
 function displayAnilistData(data) {
   const user = data.User;
   const accountDiv = document.getElementById('anilist-account');
+  accountDiv.style = "background-image: ${user.bannerImage};
   accountDiv.innerHTML = `
-    <img src="${user.avatar.medium}" alt="Avatar" class="profile-img">
+    <img src="${user.avatar.small}" alt="Avatar" class="profile-img">
     <h4>${user.name}</h3>
     <p>${user.about || "No bio available"}</p>
   `;
