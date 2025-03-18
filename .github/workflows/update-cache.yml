@@ -43,7 +43,3 @@ jobs:
           git add -A
           git commit -m "Update osu! cache file [Automated] $(date +'%Y-%m-%d %H:%M:%S')"
           git push
-
-      
-      - name: Minify Action
-        uses: anthonyftwang/minify-action@v1.0.1
