@@ -58,18 +58,21 @@ function displayAnilistData(data) {
 
   const activityDiv = document.getElementById('ani-activity');
   activityDiv.innerHTML = ''; 
-  activityDiv.style.backgroundImage = `url(${user.bannerImage})`;
+  activityDiv.style.backgroundImage=`url(${user.bannerImage})`;
+  activityDiv.style.backgroundImage="contain";
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
-    activityCard.style = "border: 1px solid #ccc; padding: 10px; margin: 5px; width: 200px; text-align: center; justify-self: center";
+    activityCard.style = "margin: 5px; width: 50px; text-align: center; justify-self: center";
     activityCard.innerHTML = `
-      <img src="${activity.media.coverImage.medium}" alt="Cover Image" style="width: 100%;">
+      <img src="${activity.media.coverImage.medium}" alt="Cover Image" style="width: 50%; height: 50%">
       <h5>${activity.media.title.english || activity.media.title.romaji}</h5>
       <p>Progress: ${activity.progress || "N/A"}</p>
       <p>Status: ${activity.status || "Unknown"}</p>
-      <a href="${activity.media.siteUrl}" target="_blank">View</a>
     `;
-
+    const link = document.createElement("a");
+    link.href = activity.mediasiteUrl;
+    link.target = "_blank";
     activityDiv.appendChild(activityCard);
+    link.appendChild(activityDiv);
   });
 }
