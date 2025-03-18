@@ -51,14 +51,13 @@ function displayAnilistData(data) {
   const user = data.User;
   const accountDiv = document.getElementById('anilist-account');
   accountDiv.innerHTML = `
-    <img src="${user.avatar.medium}" alt="Avatar" style="width: 50px; border-radius: 50%;">
-    <h4>${user.name}</h4>
+    <img src="${user.avatar.medium}" alt="Avatar" class="profile-img">
+    <h4>${user.name}</h3>
     <p>${user.about || "No bio available"}</p>
   `;
 
   const activityDiv = document.getElementById('ani-activity');
   activityDiv.innerHTML = ''; 
-
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
     activityCard.style = "border: 1px solid #ccc; padding: 10px; margin: 5px; width: 200px; text-align: center;";
