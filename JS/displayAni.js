@@ -50,7 +50,7 @@ fetch('https://graphql.anilist.co', destination)
 function displayAnilistData(data) {
   const user = data.User;
   const accountDiv = document.getElementById('anilist-account');
-  accountDiv.style = "background-image: ${user.bannerImage};";
+  accountDiv.style.backgroundImage: `url(${user.bannerImage})`;
   accountDiv.innerHTML = `
     <img src="${user.avatar.small}" alt="Avatar" class="profile-img">
     <h4>${user.name}</h3>
