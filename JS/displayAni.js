@@ -3,7 +3,6 @@ const query = `
     Page(page: 1, perPage: 4) {
       activities(userId: 6252093, sort: ID_DESC) {
         ... on ListActivity {
-          type
           progress
           status
           createdAt
@@ -20,14 +19,14 @@ const query = `
         }
       }
     }
-    User(id: 6252093) {
-      name
-      bannerImage
-      avatar {
-        medium
-      }
-      about
-    }
+    // User(id: 6252093) {
+    //   name
+    //   bannerImage
+    //   avatar {
+    //     medium
+    //   }
+    //   about
+    // }
   }
 `;
 
