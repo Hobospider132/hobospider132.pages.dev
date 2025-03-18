@@ -136,7 +136,7 @@ body {
   font-weight: bolder;
   font-style: italic;
   box-shadow: 2px 2px 5px 10px aquamarine; 
-  margin-left: 10px;
+  margin-left: 50vw;
 }
 
 .box h {
@@ -223,7 +223,7 @@ section h3 {
 }
 
 .wrapper p {
-  color: #eee;
+  color: black;
 }
 
 /* The previous message here is a source of shame for me. I apologise to all who have read the last comment here */
