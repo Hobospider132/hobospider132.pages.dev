@@ -51,15 +51,15 @@ function displayAnilistData(data) {
   const user = data.User;
   const accountDiv = document.getElementById('anilist-account');
   accountDiv.style = "justify-self: center";
-  accountDiv.style.backgroundImage = `url(${user.bannerImage})`;
   accountDiv.innerHTML = `
-    <img src="${user.avatar.small}" alt="Avatar" class="profile-img-ani">
+    <img src="${user.avatar.medium}" alt="Avatar" class="profile-img-ani">
     <h4>${user.name}</h3>
     <p>${user.about || "No bio available"}</p>
   `;
 
   const activityDiv = document.getElementById('ani-activity');
   activityDiv.innerHTML = ''; 
+  activityDiv.style.backgroundImage = `url(${user.bannerImage})`;
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
     activityCard.style = "border: 1px solid #ccc; padding: 10px; margin: 5px; width: 200px; text-align: center; justify-self: center";
