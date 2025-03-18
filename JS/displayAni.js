@@ -50,6 +50,7 @@ fetch('https://graphql.anilist.co', destination)
 function displayAnilistData(data) {
   const user = data.User;
   const accountDiv = document.getElementById('anilist-account');
+  accountDiv.style = "justify-self: center";
   accountDiv.style.backgroundImage = `url(${user.bannerImage})`;
   accountDiv.innerHTML = `
     <img src="${user.avatar.small}" alt="Avatar" class="profile-img">
@@ -61,7 +62,7 @@ function displayAnilistData(data) {
   activityDiv.innerHTML = ''; 
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
-    activityCard.style = "border: 1px solid #ccc; padding: 10px; margin: 5px; width: 200px; text-align: center;";
+    activityCard.style = "border: 1px solid #ccc; padding: 10px; margin: 5px; width: 200px; text-align: center; justify-self: center";
 
     activityCard.innerHTML = `
       <img src="${activity.media.coverImage.medium}" alt="Cover Image" style="width: 100%;">
