@@ -10,8 +10,7 @@ function displayAnilistData(data) {
     activityCard.innerHTML = `
       <img src="${activity.media.coverImage.medium}" alt="Cover Image" style="width: 50%; height: 50%;">
       <h5>${activity.media.title.english || activity.media.title.romaji}</h5>
-      <p>Progress: ${activity.progress || "N/A"}</p>
-      <p>Status: ${activity.status || "Unknown"}</p>
+      <p>${ activity.status } ${ activity.progress }</p>
     `;
 
     const link = document.createElement("a");
