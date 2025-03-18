@@ -1,16 +1,40 @@
 function displayAnilistData(data) {
+
+  const user = data.User;
+  const accountContainer = document.getElementById("anilist-account");
+  
+  accountContainer.innerHTML = "";
+  accountContainer.style.backgroundImage = `url(${user.bannerImage})`;
+  accountContainer.style.backgroundSize = "cover";
+  accountContainer.classList.add("profile-img-container");
+  
+  accountContainer.innerHTML = `
+    <img src="${user.avatar.medium}" alt="Avatar">
+    <h4>${user.name}</h4>
+    <p>${user.about || "No bio available"}</p>
+  `;
+  
+  const accountLink = document.createElement("a");
+  accountLink.href = `https://anilist.co/user/${user.name}`;
+  accountLink.target = "_blank";
+  accountLink.classList.add("profile-link");
+
+  const parentDiv = accountContainer.parentElement;
+  
+  accountLink.appendChild(accountContainer);
+  parentDiv.appendChild(accountLink);
+  
   const activityDiv = document.getElementById('ani-activity');
   activityDiv.innerHTML = ''; 
   activityDiv.style.backgroundImage = `url(${data.User.bannerImage})`;
   activityDiv.style.backgroundSize = "cover";
-  activityDiv.style.color = "aquamarine";
 
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
     activityCard.classList.add("activity-card");
 
     activityCard.innerHTML = `
-      <img src="${activity.media.coverImage.medium}" alt="Cover Image" height="80" width="100">
+      <img src="${activity.media.coverImage.medium}" alt="Cover Image">
       <h5>${activity.media.title.english || activity.media.title.romaji}</h5>
       <p>${activity.status} ${activity.progress || ""}</p>
     `;
@@ -21,15 +45,6 @@ function displayAnilistData(data) {
     link.appendChild(activityCard);
     activityDiv.appendChild(link);
   });
-  
-  const user = data.User;
-  const accountDiv = document.getElementById('anilist-account');
-  accountDiv.style.justifySelf = "center";
-  accountDiv.innerHTML = `
-    <img src="${user.avatar.medium}" alt="Avatar" class="profile-img-ani">
-    <h4 style="padding: 0;">${user.name}</h4>
-    <p>${user.about || "No bio available"}</p>
-  `;
 }
 
 const query = `
