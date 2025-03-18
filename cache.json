@@ -1,0 +1,26 @@
+[
+  {
+    "beatmap": "ClariS - Hitorigoto -TV MIX- [Little's Insane]",
+    "difficulty": "4.6",
+    "length": "1:27",
+    "url": "https://osu.ppy.sh/b/1264763",
+    "coverImage": "https://assets.ppy.sh/beatmaps/596704/covers/cover.jpg",
+    "pp": "108"
+  },
+  {
+    "beatmap": "MIMI feat. Hatsune Miku - Marshmary [Insane]",
+    "difficulty": "4.6",
+    "length": "1:23",
+    "url": "https://osu.ppy.sh/b/2014470",
+    "coverImage": "https://assets.ppy.sh/beatmaps/962088/covers/cover.jpg",
+    "pp": "108"
+  },
+  {
+    "beatmap": "MIMI feat. Hatsune Miku - Marshmary [Horizon]",
+    "difficulty": "5.3",
+    "length": "1:23",
+    "url": "https://osu.ppy.sh/b/2014469",
+    "coverImage": "https://assets.ppy.sh/beatmaps/962088/covers/cover.jpg",
+    "pp": "94"
+  }
+]
