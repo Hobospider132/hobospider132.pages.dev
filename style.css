@@ -1,4 +1,4 @@
- /* * {
+/* * {
   border: 1px solid red; 
 }  */
 
@@ -30,7 +30,7 @@ body {
 }
 
 .bg {
-  background-image: linear-gradient(rgba(90, 44, 44, 0.85), rgba(147, 146, 156, 0.85)), url('images/background.jpg');
+  background-image: linear-gradient(rgba(90, 44, 44, 0.85), rgba(147, 146, 156, 0.85)), url('images/City-horizon.jpg');
   background-size: cover;
   /* d1 gooners may have caught on to what website this background colour is from */
   background-color: #90EE90; 
@@ -111,9 +111,11 @@ body {
   display: inline-block
 }
 
-.contact:active {
+/* lazy and busy with school so doing quick and dirty fixes, will make this all work nicer at a later date */
+
+.depth:active {
   transform: perspective(300px) translateZ(-25px);
-}
+} 
 
 /* start osu scores css */
 
@@ -163,38 +165,67 @@ body {
 /* end osu scores stuff */
 
 /* start anilist css */
+
 #ani-activity {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 10px; 
-  padding: 10px; 
-  max-width: 90%; 
-  margin: auto; 
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px; 
+  margin-left: 10px;
+  max-width: 90vw; 
+  min-height: 350px; 
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .activity-card {
   flex: 1 1 calc(25% - 20px); 
-  max-width: 200px; 
+  max-width: 220px; 
+  min-width: 180px; 
+  height: auto; 
   text-align: center;
-  background-color: rgba(128, 128, 128, 0.5); 
+  background-color: rgba(128, 128, 128, 0.5);
   border-radius: 16px;
-  padding: 10px;
+  padding: 20px; 
   overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+}
+
+.activity-card:active {
+  transform: perspective(300px) translateZ(-25px);
 }
 
 .activity-card img {
-  width: 75%; 
-  height: auto; 
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px; 
 }
 
 .activity-card h5 {
-  margin: 5px 0;
+  margin: 10px 0;
   color: white;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .activity-card p {
   color: white;
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-style: italic;
 }
 
 /* end anilist css */
@@ -263,10 +294,6 @@ section h3 {
   flex-wrap: wrap;
   gap: 15px;
  
-}
-
-.wrapper p {
-  color: black;
 }
 
 /* The previous message here is a source of shame for me. I apologise to all who have read the last comment here */

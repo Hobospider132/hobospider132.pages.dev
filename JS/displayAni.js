@@ -10,9 +10,9 @@ function displayAnilistData(data) {
     activityCard.classList.add("activity-card");
 
     activityCard.innerHTML = `
-      <img src="${activity.media.coverImage.medium}" alt="Cover Image">
+      <img src="${activity.media.coverImage.medium}" alt="Cover Image" height="80" width="100">
       <h5>${activity.media.title.english || activity.media.title.romaji}</h5>
-      <p>${activity.status} ${activity.progress}</p>
+      <p>${activity.status} ${activity.progress || ""}</p>
     `;
 
     const link = document.createElement("a");
@@ -21,7 +21,7 @@ function displayAnilistData(data) {
     link.appendChild(activityCard);
     activityDiv.appendChild(link);
   });
-
+  
   const user = data.User;
   const accountDiv = document.getElementById('anilist-account');
   accountDiv.style.justifySelf = "center";
