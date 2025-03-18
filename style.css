@@ -21,7 +21,6 @@ body {
   font-family: sans-serif;
   overflow-y: scroll;
   overflow-x: hidden;
-  font-size: clamp(1.5rem, 2vw, 3rem);
 }
 
 .size {
