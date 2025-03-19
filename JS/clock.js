@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         let [AusHr] = AusTime.split(':');
     
-        const UTCOptions = { timeZone: 'UTC', hour12: true};
+        const UTCOptions = { timeZone: 'UTC', hour24: true};
         const UTCToday = new Date().toLocaleString('en-GB', UTCOptions);
     
         const [, UTCTime] = UTCToday.split(', ');
@@ -33,9 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         let num_AusHr = Number(AusHr);
         let num_UTCHr = Number(UTCHr);        
-        // console.log("Australia time: ", num_AusHr);
-        // console.log("UTC time: ", num_UTCHr);
-        // console.log(num_AusHr - num_UTCHr);
+		num_AusHr === 0 ? num_AusHr = 24 : pass;
         return num_AusHr - num_UTCHr === 11;
     }
 
