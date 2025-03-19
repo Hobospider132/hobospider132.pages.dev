@@ -273,6 +273,7 @@ a:active {
 }
 
 section {
+  justify-content: center;
   display: flex;
   background-repeat: no-repeat;
   align-items: center;
