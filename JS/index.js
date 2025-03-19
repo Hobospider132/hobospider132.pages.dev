@@ -23,8 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
         osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true"; 
     } else {
         /* If it's on desktop */
+<<<<<<< HEAD
         osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';        
 		var cursor = document.getElementById("cursor");
+=======
+        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';     
+        var cursor = document.getElementById("cursor");
+>>>>>>> 2f1affa50dd6ff40917cc93771692238a0eed109
 		document.body.addEventListener("mousemove", function(e) {
 		  cursor.style.left = e.clientX + "px",
 			cursor.style.top = e.clientY + "px";
