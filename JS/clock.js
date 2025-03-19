@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         let num_AusHr = Number(AusHr);
         let num_UTCHr = Number(UTCHr);        
-		num_AusHr === 0 ? num_AusHr = 24 : pass;
+	num_AusHr === 0 ? num_AusHr = 24 : null;
         return num_AusHr - num_UTCHr === 11;
     }
 
@@ -65,14 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
         day.innerHTML = dayNow;
         year.innerHTML = `${yearNow} |  ${DSTZone}`;
 
-        if (hrNow > 12) {
-            hrNow = hrNow - 12;
-        } 
-
-        if (hrNow == 0) {
-            hrNow = 12;
-        }
-        
+	hrNow > 12 ? hrNow = hrNow - 12: null;
+	hrNow === 0 ? hrNow = 12: null;
         hour.innerHTML = String(hrNow);
         sec.innerHTML = String(secNow).padStart(2, '0');
         min.innerHTML = String(minNow).padStart(2, '0');
