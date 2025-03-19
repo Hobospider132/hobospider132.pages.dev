@@ -104,6 +104,7 @@ body {
   border-radius: 16px;
   width: 200px;
   height: 200px; 
+  justify-self: center;
 }
 
 .contact p {
@@ -139,7 +140,7 @@ body {
   font-weight: bolder;
   font-style: italic;
   box-shadow: 2px 2px 5px 10px aquamarine; 
-  margin-left: 37px;
+  justify-self: center;
   
 }
 
@@ -174,7 +175,7 @@ body {
   justify-content: center;
   gap: 20px;
   padding: 20px; 
-  margin-left: 5px;
+  justify-self: center;
   max-width: 90vw; 
   min-height: 350px; 
   box-sizing: border-box;
@@ -193,21 +194,31 @@ body {
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .activity-card {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
-
-@media (max-width: 480px) {
+/* @media (max-width: 768px) {
   .activity-card {
     flex: 1 1 100%;
   }
+} */
+
+@media (max-width: 600px) {
+  #ani-activity {
+    display: flex;
+    flex-direction: column !important; 
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    height: auto;
+  }
+
+  .activity-card {
+    max-width: 300px;
+    margin-bottom: 10px; 
+  }
 }
+
 
 .activity-card:hover {
   transform: translateY(-10px);
@@ -286,6 +297,7 @@ section {
   justify-content: center;
   padding: 10px;
   width: auto;
+  justify-self: center;
 }
 
 .profile-img-container img {
@@ -395,6 +407,7 @@ section h3 {
   font-size: 50px;
   -webkit-text-stroke: 1px rgb(255, 255, 255);
   background-color: #0d578bc4; 
+  justify-self: center;
 }
 
 .timezone:active {
