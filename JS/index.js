@@ -24,5 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         /* If it's on desktop */
         osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';        
+		var cursor = document.getElementById("cursor");
+		document.body.addEventListener("mousemove", function(e) {
+		  cursor.style.left = e.clientX + "px",
+			cursor.style.top = e.clientY + "px";
+		});
     }   
 });
