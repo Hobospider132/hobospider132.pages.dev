@@ -6,10 +6,8 @@ function device() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    window.addEventListener("load", event => {
-        const textElement = document.getElementById('visitorCount');
-        textElement.style.display = 'none';
-    });  
+    const textElement = document.getElementById('visitorCount');
+    textElement.style.display = 'none';
 
     let contact = document.getElementById('contact-wrapper');
     let main = document.getElementById('main');
