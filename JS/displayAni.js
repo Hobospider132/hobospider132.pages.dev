@@ -29,13 +29,18 @@ function displayAnilistData(data) {
   activityDiv.style.backgroundImage = `url(${data.User.bannerImage})`;
   activityDiv.style.backgroundSize = "cover";
 
+  function truncateTitle(title, maxLength = 18) {
+    return title.length > maxLength ? title.substring(0, maxLength) + "..." : title;
+  }
+
+
   data.Page.activities.forEach(activity => {
     const activityCard = document.createElement('div');
     activityCard.classList.add("activity-card");
 
     activityCard.innerHTML = `
       <img src="${activity.media.coverImage.medium}" alt="Cover Image">
-      <h5>${activity.media.title.english || activity.media.title.romaji}</h5>
+      <h5>${truncateTitle(activity.media.title.english || activity.media.title.romaji)}</h5>
       <p>${activity.status} ${activity.progress || ""}</p>
     `;
 
