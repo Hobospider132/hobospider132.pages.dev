@@ -12,16 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
     let contact = document.getElementById('contact-wrapper');
     let main = document.getElementById('main');
     let center = document.getElementById('center');
-    let osuLink = document.getElementById('osu');
     if (device()) { 
         /* If it's on mobile */
         contact.style.width = 'clamp(380px, 8vw, 105px)';
-        main.style.marginLeft = '30px';
-        center.style.alignContent = 'center';
-        osuLink.src = "https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=125&mini=true"; 
+	document.body.style.justifySelf = "center";
+	document.body.style.zoom = "70%";	
+        center.style.alignContent = 'center'; 
     } else {
-        /* If it's on desktop */
-        osuLink.src = 'https://osu-sig.vercel.app/card?user=Hobospider132&mode=std&lang=en&round_avatar=true&animation=true&hue=200&skills=true';     
+        /* If it's on desktop */    
         var cursor = document.getElementById("cursor");
 	document.body.addEventListener("mousemove", function(e) {
 	  cursor.style.left = e.clientX + "px",
