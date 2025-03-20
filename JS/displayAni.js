@@ -29,7 +29,7 @@ function displayAnilistData(data) {
   activityDiv.style.backgroundImage = `url(${data.User.bannerImage})`;
   activityDiv.style.backgroundSize = "cover";
 
-  function truncateTitle(title, maxLength = 18) {
+  function truncateTitle(title, maxLength = 20) {
     return title.length > maxLength ? title.substring(0, maxLength) + "..." : title;
   }
 
