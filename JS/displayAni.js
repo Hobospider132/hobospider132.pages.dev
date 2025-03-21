@@ -4,8 +4,6 @@ function displayAnilistData(data) {
   const accountContainer = document.getElementById("anilist-account");
   
   accountContainer.innerHTML = "";
-  accountContainer.style.backgroundImage = `url(${user.bannerImage})`;
-  accountContainer.style.backgroundSize = "cover";
   accountContainer.classList.add("profile-img-container");
   
   accountContainer.innerHTML = `
@@ -26,9 +24,7 @@ function displayAnilistData(data) {
   
   const activityDiv = document.getElementById('ani-activity');
   activityDiv.innerHTML = ''; 
-  activityDiv.style.backgroundImage = `url(${data.User.bannerImage})`;
   activityDiv.style.backgroundSize = "cover";
-
   function truncateTitle(title, maxLength = 20) {
     return title.length > maxLength ? title.substring(0, maxLength) + "..." : title;
   }
@@ -74,7 +70,6 @@ const query = `
     }
     User(id: 6252093) {
       name
-      bannerImage
       avatar {
         medium
       }

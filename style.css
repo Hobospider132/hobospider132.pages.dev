@@ -234,15 +234,15 @@ body {
 
 .activity-card h5 {
   margin: 10px 0;
-  color: white;
+  color: black;
   font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+			
 .activity-card p {
-  color: white;
+  color: black;
   font-size: 18px;
   margin-top: 10px;
   font-weight: bold;
@@ -295,6 +295,7 @@ section {
   padding: 10px;
   width: auto;
   justify-self: center;
+  background-image: url("images/City-horizon.avif");
 }
 
 .profile-img-container img {
@@ -309,7 +310,7 @@ section {
   display: inline-block;
   width: fit-content;
   height: fit-content;
-  color: white;
+  color: aquamarine;
 }
 
 #main h1 {
