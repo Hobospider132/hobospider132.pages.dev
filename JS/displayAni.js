@@ -61,7 +61,7 @@ const query = `
           status
           media {
             coverImage {
-              small
+              medium
             }
             title {
               english
