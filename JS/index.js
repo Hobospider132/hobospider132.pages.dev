@@ -6,17 +6,14 @@ function device() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const textElement = document.getElementById('visitorCount');
-    textElement.style.display = 'none';
-
     let contact = document.getElementById('contact-wrapper');
     let main = document.getElementById('main');
     let center = document.getElementById('center');
     if (device()) { 
         /* If it's on mobile */
         contact.style.width = 'clamp(380px, 8vw, 105px)';
-	document.body.style.justifySelf = "center";
-	document.body.style.zoom = "70%";	
+		document.body.style.justifySelf = "center";
+		document.body.style.zoom = "70%";	
         center.style.alignContent = 'center'; 
     } else {
         /* If it's on desktop */    
@@ -27,3 +24,4 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
     }   
 });
+
